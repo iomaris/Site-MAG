@@ -1,0 +1,2011 @@
+/* =========================================================
+   MAG — CAMADA FINAL DE RESPONSIVIDADE
+   Mantém o layout desktop e estabiliza tablet/celular.
+========================================================= */
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+}
+
+body{
+    overflow-x:clip;
+}
+
+main,
+section,
+header,
+footer,
+.container{
+    min-width:0;
+}
+
+img,
+video,
+iframe,
+svg{
+    max-width:100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+span,
+li,
+blockquote{
+    overflow-wrap:break-word;
+}
+
+section[id]{
+    scroll-margin-top:100px;
+}
+
+/* Evita que colunas de grid/flex imponham largura maior que a tela. */
+.hero-grid > *,
+.about-grid > *,
+.services-grid > *,
+.advantages .container > *,
+.contact .container > *,
+.footer-grid > *,
+.google-review-card__top > *,
+.advantage > div{
+    min-width:0;
+}
+
+/* =========================================================
+   TABLET / NOTEBOOK COMPACTO
+========================================================= */
+@media (max-width:1200px){
+    .advantages-left{
+        position:static;
+        top:auto;
+        width:100%;
+        max-width:780px;
+        margin-bottom:4px;
+    }
+
+    .advantages .container,
+    .contact .container{
+        width:min(92%,960px);
+    }
+
+    .contact-left,
+    .contact-right{
+        width:100%;
+    }
+
+    .footer-grid{
+        grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+        gap:52px 44px;
+    }
+}
+
+/* =========================================================
+   MENU, HERO E ESTRUTURA PRINCIPAL
+========================================================= */
+@media (max-width:992px){
+    html{
+        scroll-padding-top:84px;
+    }
+
+    section[id]{
+        scroll-margin-top:84px;
+    }
+
+    .header .container,
+    .header.scrolled .container{
+        height:82px;
+    }
+
+    .header .logo,
+    .menu-mobile{
+        position:relative;
+        z-index:10001;
+    }
+
+    .header .logo img,
+    .header.scrolled .logo img{
+        width:auto !important;
+        height:42px;
+        max-width:150px;
+    }
+
+    .menu-mobile{
+        display:block;
+        flex:0 0 50px;
+        width:50px;
+        height:50px;
+        border-radius:6px;
+    }
+
+    .navbar{
+        position:fixed;
+        inset:0;
+        z-index:10000;
+        width:100%;
+        height:100vh;
+        height:100dvh;
+        display:flex !important;
+        align-items:center;
+        justify-content:center;
+        padding:100px 24px 40px;
+        overflow-y:auto;
+        visibility:hidden;
+        opacity:0;
+        pointer-events:none;
+        transform:translateY(-12px);
+        background:rgba(7,19,31,.985);
+        transition:opacity .25s ease,transform .25s ease;
+    }
+
+    .navbar.active{
+        visibility:visible;
+        opacity:1;
+        pointer-events:auto;
+        transform:translateY(0);
+    }
+
+    .navbar ul{
+        width:min(100%,420px);
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+
+    .navbar li,
+    .navbar a{
+        width:100%;
+    }
+
+    .navbar a{
+        display:block;
+        padding:13px 10px;
+        font-size:22px;
+        line-height:1.25;
+    }
+
+    .navbar a::after{
+        bottom:5px;
+    }
+
+    .hero{
+        height:auto;
+        min-height:max(760px,100svh);
+        padding:150px 0 230px;
+        align-items:flex-start;
+    }
+
+    .hero video{
+        inset:0;
+        width:100%;
+        height:100%;
+        max-width:none;
+        object-fit:cover;
+        object-position:center;
+    }
+
+    .hero-grid{
+        width:min(90%,720px);
+        margin-inline:auto;
+        text-align:center;
+    }
+
+    .hero-left{
+        width:100%;
+        max-width:none;
+        margin:0 auto;
+    }
+
+    .hero h1{
+        width:100%;
+        max-width:720px;
+        margin:0 auto 26px;
+        font-size:clamp(38px,7vw,56px);
+    }
+
+    .hero p{
+        max-width:650px;
+        margin-inline:auto;
+    }
+
+    .hero-metrics{
+        width:100%;
+        max-width:none;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:54px;
+    }
+
+    .about-image,
+    .about-content{
+        width:100%;
+        max-width:760px;
+        margin-inline:auto;
+    }
+
+    .about-image::before,
+    .about-image::after{
+        display:none;
+    }
+
+    .about-image img{
+        width:100%;
+        height:auto;
+        max-height:650px;
+        aspect-ratio:4 / 5;
+        object-fit:cover;
+    }
+
+    .about-list{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .cta .container{
+        grid-template-columns:1fr;
+        gap:34px;
+    }
+
+    .cta-button,
+    .cta .btn-primary{
+        width:100%;
+        max-width:420px;
+    }
+
+    .cta .btn-primary{
+        display:flex;
+    }
+}
+
+/* =========================================================
+   CELULAR E TABLET PEQUENO
+========================================================= */
+@media (max-width:800px){
+    .container{
+        width:min(92%,680px);
+    }
+
+    /* Linha do tempo: elimina margens e deslocamentos que saíam da tela. */
+    .mag-history{
+        overflow:hidden;
+    }
+
+    .mag-history__timeline{
+        width:100%;
+        max-width:100%;
+        padding:0;
+    }
+
+    .mag-history__rail,
+    .mag-history__progress{
+        left:21px;
+    }
+
+    .mag-history__item{
+        width:100%;
+        grid-template-columns:42px minmax(0,1fr);
+        column-gap:12px;
+        min-height:0;
+        margin-bottom:42px;
+    }
+
+    .mag-history__item--left .mag-history__card,
+    .mag-history__item--right .mag-history__card{
+        grid-column:2;
+        grid-row:1;
+        width:100%;
+        max-width:none;
+        min-width:0;
+        margin:0;
+        justify-self:stretch;
+    }
+
+    .mag-history__node{
+        grid-column:1;
+        grid-row:1;
+        width:42px;
+        height:42px;
+        border-width:5px;
+    }
+
+    .mag-history__node i{
+        font-size:12px;
+    }
+
+    .mag-history__card{
+        padding:24px;
+        overflow:hidden;
+    }
+
+    .mag-history__card::after,
+    .mag-history__item--left .mag-history__card::after,
+    .mag-history__item--right .mag-history__card::after{
+        left:-12px;
+        right:auto;
+        width:12px;
+        transform:none;
+    }
+
+    .mag-history.history-ready .mag-history__item--left .mag-history__card,
+    .mag-history.history-ready .mag-history__item--right .mag-history__card{
+        transform:translateY(24px);
+    }
+
+    .mag-history.history-ready .mag-history__item.is-visible .mag-history__card{
+        transform:translateY(0);
+    }
+
+    .mag-history__finish{
+        width:calc(100% - 54px);
+        max-width:none;
+        margin:48px 0 0 54px;
+    }
+
+    /* Diferenciais: título normal no fluxo e cartões sem corte lateral. */
+    .advantages .container{
+        display:block;
+    }
+
+    .advantages-left{
+        position:static;
+        margin:0 0 42px;
+    }
+
+    .advantages-right{
+        width:100%;
+        gap:18px;
+    }
+
+    .advantage{
+        width:100%;
+        display:grid;
+        grid-template-columns:48px minmax(0,1fr);
+        gap:16px;
+        padding:26px 22px;
+        overflow:hidden;
+    }
+
+    .advantage:hover{
+        transform:translateY(-4px);
+    }
+
+    .advantage > span{
+        min-width:0;
+        font-size:32px;
+        line-height:1.1;
+    }
+
+    .advantage h3{
+        font-size:20px;
+        overflow-wrap:anywhere;
+    }
+
+    .advantage p{
+        font-size:15px;
+        overflow-wrap:anywhere;
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:12px;
+        overflow:visible;
+    }
+
+    .gallery-media,
+    .gallery-grid img,
+    .gallery-grid video{
+        width:100%;
+        height:auto;
+        min-height:0;
+        aspect-ratio:4 / 3;
+        object-fit:cover;
+    }
+
+    .gallery-media--main,
+    .gallery-media--workshop{
+        grid-column:span 2;
+        aspect-ratio:16 / 10;
+    }
+
+    .contact .container{
+        grid-template-columns:1fr;
+        gap:48px;
+    }
+
+    .contact-information article,
+    .contact-right form{
+        width:100%;
+    }
+
+    .contact-information h4,
+    .contact-link{
+        max-width:100%;
+        font-size:clamp(17px,4.5vw,22px);
+        overflow-wrap:anywhere;
+    }
+
+    .footer-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:42px 28px;
+    }
+
+    .footer-brand{
+        grid-column:1 / -1;
+        max-width:620px;
+    }
+
+    .footer-bottom{
+        text-align:left;
+    }
+
+    .footer-legal-links{
+        justify-content:flex-start;
+        flex-wrap:wrap;
+        gap:12px 20px;
+    }
+}
+
+/* =========================================================
+   CELULARES
+========================================================= */
+@media (max-width:600px){
+    section{
+        padding-top:78px;
+        padding-bottom:78px;
+    }
+
+    .container{
+        width:calc(100% - 32px);
+    }
+
+    .header .container,
+    .header.scrolled .container{
+        width:calc(100% - 24px);
+        height:74px;
+    }
+
+    .header .logo img,
+    .header.scrolled .logo img{
+        height:34px;
+        max-width:118px;
+    }
+
+    .menu-mobile{
+        flex-basis:46px;
+        width:46px;
+        height:46px;
+    }
+
+    .hero{
+        min-height:820px;
+        padding:132px 0 250px;
+    }
+
+    .hero-grid{
+        width:calc(100% - 32px);
+    }
+
+    .hero h1{
+        font-size:clamp(32px,9.7vw,43px);
+        line-height:1.08;
+        letter-spacing:-.02em;
+    }
+
+    .hero p{
+        font-size:16px;
+        line-height:1.75;
+    }
+
+    .hero-metrics{
+        grid-template-columns:1fr;
+    }
+
+    .hero-metrics > div{
+        min-width:0;
+        padding:16px;
+    }
+
+    .hero-metrics strong{
+        min-width:105px;
+        font-size:clamp(21px,6vw,28px);
+    }
+
+    .hero-metrics span{
+        font-size:10px;
+    }
+
+    .hero .scroll-down{
+        display:none;
+    }
+
+    .section-title h2,
+    .google-reviews__header h2,
+    .mag-history__header h2,
+    .services .section-title h2,
+    .advantages-left h2,
+    .gallery .section-title h2,
+    .contact-left h2{
+        font-size:clamp(30px,9.2vw,40px);
+        line-height:1.08;
+        letter-spacing:-.025em;
+    }
+
+    .section-title p,
+    .about-content p,
+    .contact-left p{
+        font-size:15px;
+        line-height:1.75;
+    }
+
+    .about-grid{
+        gap:42px;
+    }
+
+    .about-image img{
+        max-height:none;
+        aspect-ratio:3 / 4;
+        border-radius:6px;
+    }
+
+    .about-content h3{
+        font-size:clamp(29px,9vw,38px);
+    }
+
+    .about-list{
+        grid-template-columns:1fr;
+        gap:12px;
+        margin-top:30px;
+    }
+
+    .about-list li{
+        width:100%;
+        padding:16px;
+    }
+
+    .mag-history{
+        padding:82px 0;
+    }
+
+    .mag-history__header{
+        margin-bottom:52px;
+    }
+
+    .mag-history__item{
+        grid-template-columns:34px minmax(0,1fr);
+        column-gap:10px;
+        margin-bottom:34px;
+    }
+
+    .mag-history__rail,
+    .mag-history__progress{
+        left:17px;
+    }
+
+    .mag-history__node{
+        width:34px;
+        height:34px;
+        border-width:4px;
+    }
+
+    .mag-history__node i{
+        font-size:10px;
+    }
+
+    .mag-history__card{
+        grid-template-columns:1fr;
+        grid-template-rows:auto auto auto;
+        gap:16px;
+        padding:20px;
+    }
+
+    .mag-history__meta{
+        grid-column:1;
+        grid-row:1;
+        min-height:0;
+        margin:0;
+        padding:0 0 14px;
+        border-right:0;
+        border-bottom:1px solid rgba(255,255,255,.10);
+    }
+
+    .mag-history__card h3{
+        grid-column:1;
+        grid-row:2;
+        font-size:19px;
+    }
+
+    .mag-history__card p{
+        grid-column:1;
+        grid-row:3;
+        font-size:14px;
+        line-height:1.65;
+    }
+
+    .mag-history__card::after,
+    .mag-history__item--left .mag-history__card::after,
+    .mag-history__item--right .mag-history__card::after{
+        left:-10px;
+        width:10px;
+    }
+
+    .mag-history__finish{
+        width:calc(100% - 44px);
+        margin-left:44px;
+        padding:18px;
+        gap:13px;
+    }
+
+    .mag-history__finish-icon{
+        width:42px;
+        height:42px;
+        flex-basis:42px;
+    }
+
+    .google-reviews{
+        padding:82px 0;
+    }
+
+    .google-rating{
+        width:100%;
+        padding:20px;
+        flex-wrap:wrap;
+    }
+
+    .reviews-carousel{
+        width:100%;
+        gap:0;
+    }
+
+    .reviews-carousel__viewport{
+        width:100%;
+        padding:0 12px;
+    }
+
+    .reviews-carousel__track{
+        gap:14px;
+        padding-bottom:28px;
+    }
+
+    .google-review-card{
+        flex:0 0 100%;
+        width:100%;
+        min-height:300px;
+        padding:24px 22px;
+    }
+
+    .reviews-carousel__button{
+        width:40px;
+        height:40px;
+    }
+
+    .reviews-carousel__button--prev{
+        left:-4px;
+    }
+
+    .reviews-carousel__button--next{
+        right:-4px;
+    }
+
+    .google-reviews__link{
+        width:100%;
+        min-height:54px;
+        padding:0 16px;
+        text-align:center;
+        line-height:1.35;
+    }
+
+    .product-catalog{
+        padding:78px 0 84px;
+    }
+
+    .product-catalog .container{
+        width:calc(100% - 20px);
+    }
+
+    .product-category-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        grid-auto-rows:210px;
+        gap:9px;
+    }
+
+    .product-catalog__intro{
+        grid-column:1 / -1;
+        min-height:0;
+        height:auto;
+        padding:28px 22px;
+    }
+
+    .product-catalog__intro h2{
+        font-size:clamp(29px,9vw,40px);
+    }
+
+    .product-catalog__stock{
+        margin-top:18px;
+    }
+
+    .product-category-card{
+        height:210px;
+    }
+
+    .product-category-card__body{
+        min-height:56px;
+        padding:10px 11px;
+    }
+
+    .product-category-card h3{
+        font-size:11px;
+    }
+
+    .brands{
+        padding:78px 0;
+    }
+
+    .services-grid{
+        gap:16px;
+    }
+
+    .service-card{
+        padding:26px 22px;
+    }
+
+    .service-card span{
+        width:52px;
+        height:52px;
+        margin-bottom:24px;
+        font-size:16px;
+    }
+
+    .service-card h3{
+        font-size:21px;
+    }
+
+    .advantage{
+        grid-template-columns:40px minmax(0,1fr);
+        gap:13px;
+        padding:22px 18px;
+    }
+
+    .advantage > span{
+        font-size:28px;
+    }
+
+    .gallery .section-title{
+        margin-bottom:42px;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .gallery-media,
+    .gallery-grid img,
+    .gallery-grid video,
+    .gallery-media--main,
+    .gallery-media--workshop{
+        grid-column:auto;
+        aspect-ratio:4 / 3;
+        border-radius:6px;
+    }
+
+    .cta .container{
+        width:calc(100% - 32px);
+    }
+
+    .cta h2{
+        font-size:clamp(30px,9vw,40px);
+    }
+
+    .cta .btn-primary{
+        max-width:none;
+        min-width:0;
+    }
+
+    .contact-right form{
+        padding:26px 20px;
+        border-radius:6px;
+    }
+
+    .contact input,
+    .contact textarea{
+        min-width:0;
+        padding:16px;
+        border-radius:6px;
+        font-size:16px;
+    }
+
+    .contact-information article{
+        padding:22px 20px;
+        border-radius:6px;
+    }
+
+    .contact-privacy-consent{
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .contact-privacy-consent input{
+        flex:0 0 auto;
+        width:18px;
+        height:18px;
+        padding:0;
+    }
+
+    .map-location iframe,
+    .map-consent-placeholder{
+        height:330px !important;
+        min-height:330px !important;
+    }
+
+    .map-location__card{
+        width:100% !important;
+        padding:30px 16px !important;
+    }
+
+    .map-location__card h2{
+        font-size:clamp(28px,9vw,34px) !important;
+    }
+
+    .map-location__button{
+        width:100%;
+        padding:0 16px !important;
+        text-align:center;
+    }
+
+    footer{
+        padding:78px 0 28px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:34px;
+        margin-bottom:48px;
+    }
+
+    .footer-brand{
+        grid-column:auto;
+    }
+
+    .footer-brand__title{
+        font-size:20px;
+        line-height:1.42;
+    }
+
+    .footer-grid h3{
+        margin-bottom:15px;
+        font-size:20px;
+    }
+
+    .footer-grid p,
+    .footer-grid li{
+        line-height:1.75;
+    }
+
+    .footer-bottom{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .whatsapp-btn{
+        right:14px;
+        bottom:14px;
+        width:54px;
+        height:54px;
+    }
+
+    .back-top{
+        right:14px;
+        bottom:78px;
+        width:48px;
+        height:48px;
+        font-size:18px;
+    }
+}
+
+/* Telas muito estreitas (ex.: 320 px). */
+@media (max-width:360px){
+    .container{
+        width:calc(100% - 20px);
+    }
+
+    .hero-grid{
+        width:calc(100% - 24px);
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .product-category-grid{
+        grid-template-columns:1fr;
+        grid-auto-rows:240px;
+    }
+
+    .product-category-card{
+        height:240px;
+    }
+
+    .product-category-card h3{
+        font-size:13px;
+    }
+
+    .mag-history__card{
+        padding:17px;
+    }
+
+    .mag-history__card h3{
+        font-size:18px;
+    }
+
+    .google-review-card__top{
+        grid-template-columns:auto minmax(0,1fr);
+    }
+
+    .google-review-card__top > i{
+        display:none;
+    }
+}
+
+/* Em telas sem hover, não deixa efeitos deslocarem os cartões. */
+@media (hover:none){
+    .differential-card:hover,
+    .service-card:hover,
+    .advantage:hover,
+    .google-review-card:hover,
+    .product-category-card:hover,
+    .contact-information article:hover{
+        transform:none;
+    }
+}
+
+@media (max-width:360px){
+    .advantage{
+        grid-template-columns:32px minmax(0,1fr);
+        gap:10px;
+        padding:20px 16px;
+    }
+
+    .advantage h3{
+        font-size:18px;
+        overflow-wrap:normal;
+        word-break:normal;
+    }
+}
+
+/* =========================================================
+   HERO MOBILE — AJUSTE VISUAL DA PRIMEIRA TELA
+   Alterações restritas ao banner inicial em celulares.
+========================================================= */
+@media (max-width:600px){
+    .hero{
+        height:auto;
+        min-height:max(700px,100svh);
+        padding:118px 0 118px;
+        align-items:flex-start;
+    }
+
+    .hero video{
+        transform:scale(1.03);
+        object-position:56% center;
+    }
+
+    .hero-overlay{
+        background:
+            linear-gradient(180deg,
+                rgba(4,15,27,.74) 0%,
+                rgba(4,15,27,.55) 42%,
+                rgba(4,15,27,.72) 72%,
+                rgba(4,15,27,.96) 100%),
+            linear-gradient(90deg,
+                rgba(4,15,27,.88) 0%,
+                rgba(4,15,27,.48) 72%,
+                rgba(4,15,27,.30) 100%);
+    }
+
+    .hero::before{
+        background:
+            radial-gradient(circle at 16% 32%,rgba(0,74,153,.23),transparent 48%),
+            linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+            linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+        background-size:auto,56px 56px,56px 56px;
+        opacity:.7;
+    }
+
+    .hero-grid{
+        width:calc(100% - 40px);
+        margin-inline:auto;
+        text-align:left;
+    }
+
+    .hero-left{
+        display:block;
+        width:100%;
+        max-width:360px;
+        margin:0;
+        padding:0;
+        border:0;
+        border-radius:0;
+        background:none;
+        backdrop-filter:none;
+        box-shadow:none;
+    }
+
+    .hero h1{
+        width:100%;
+        max-width:350px;
+        margin:0 0 20px;
+        font-size:clamp(29px,8.2vw,35px);
+        line-height:1.04;
+        letter-spacing:-.035em;
+        text-align:left;
+        text-wrap:initial;
+    }
+
+    .hero h1 span{
+        display:block;
+    }
+
+    .hero p{
+        max-width:330px;
+        margin:0;
+        color:rgba(255,255,255,.86);
+        font-size:14.5px;
+        line-height:1.62;
+        text-align:left;
+    }
+    
+.hero-metrics{
+   left:0;
+        right:0;
+        bottom:0;
+    min-height:112px;
+    display:grid;
+     grid-template-columns:repeat(3,minmax(0,1fr));
+
+    background:transparent;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+
+    border-top:1px solid rgba(255,255,255,.13);
+}
+
+
+
+
+    .hero-metrics > div,
+    .hero-metrics > div:first-child{
+        min-width:0;
+        min-height:0;
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        justify-content:center;
+        gap:6px;
+        padding:18px 12px;
+        border:0;
+        border-right:1px solid rgba(255,255,255,.11);
+        border-radius:0;
+        background:none;
+        box-shadow:none;
+        text-align:left;
+    }
+
+    .hero-metrics > div:first-child{
+        padding-left:20px;
+    }
+
+    .hero-metrics > div:nth-child(3){
+        grid-column:auto;
+    }
+
+    .hero-metrics > div:last-child{
+        border-right:0;
+    }
+
+    .hero-metrics strong{
+        min-width:0;
+        margin:0;
+        color:#fff;
+        font-size:clamp(17px,5vw,22px);
+        line-height:1;
+        white-space:nowrap;
+    }
+
+    .hero-metrics > div:nth-child(3) strong,
+    .hero-metrics > div:last-child strong{
+        font-size:clamp(13px,3.8vw,16px);
+        line-height:1;
+    }
+
+    .hero-metrics span{
+        max-width:100%;
+        margin:0;
+        color:rgba(255,255,255,.67);
+        font-size:8.5px;
+        line-height:1.35;
+        letter-spacing:.08em;
+    }
+}
+
+@media (max-width:360px){
+    .hero{
+        min-height:max(650px,100svh);
+        padding:108px 0 104px;
+    }
+
+    .hero-grid{
+        width:calc(100% - 30px);
+    }
+
+    .hero h1{
+        max-width:300px;
+        font-size:28px;
+    }
+
+    .hero p{
+        max-width:290px;
+        font-size:13.5px;
+    }
+
+    .hero-metrics{
+        min-height:104px;
+    }
+
+    .hero-metrics > div,
+    .hero-metrics > div:first-child{
+        padding:15px 9px;
+    }
+
+    .hero-metrics > div:first-child{
+        padding-left:14px;
+    }
+
+    .hero-metrics strong{
+        font-size:18px;
+    }
+
+    .hero-metrics > div:nth-child(3) strong,
+    .hero-metrics > div:last-child strong{
+        font-size:12.5px;
+    }
+
+    .hero-metrics span{
+        font-size:7.5px;
+        letter-spacing:.06em;
+    }
+}
+
+/* =========================================================
+   CORREÇÃO DEFINITIVA — SETAS E CATÁLOGO NO CELULAR
+   Mantém as setas estáveis ao clicar/tocar e libera todo o
+   conteúdo do painel de apresentação dos produtos.
+========================================================= */
+
+/* Remove o destaque retangular e evita mudança de posição/cor
+   nos botões circulares em mouse, teclado e toque. */
+.reviews-carousel__button,
+.back-top{
+    -webkit-appearance:none;
+    appearance:none;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+    user-select:none;
+    border:0;
+    outline:0;
+    background:#0868C4;
+    color:#FFFFFF;
+    background-clip:padding-box;
+    overflow:hidden;
+}
+
+.reviews-carousel__button,
+.reviews-carousel__button:hover,
+.reviews-carousel__button:active,
+.reviews-carousel__button:focus,
+.reviews-carousel__button:focus-visible{
+    background:#0868C4 !important;
+    color:#FFFFFF !important;
+    outline:0 !important;
+    transform:none !important;
+    box-shadow:0 15px 35px rgba(7,19,31,.20) !important;
+}
+
+.back-top,
+.back-top:hover,
+.back-top:active,
+.back-top:focus,
+.back-top:focus-visible{
+    background:#0868C4 !important;
+    color:#FFFFFF !important;
+    outline:0 !important;
+    transform:none !important;
+    box-shadow:var(--shadow-large) !important;
+}
+
+/* Foco acessível, circular e sem caixa retangular. */
+.reviews-carousel__button:focus-visible,
+.back-top:focus-visible{
+    box-shadow:
+        0 0 0 3px rgba(255,255,255,.92),
+        0 0 0 6px rgba(8,104,196,.55),
+        0 15px 35px rgba(7,19,31,.20) !important;
+}
+
+/* As setas do carrossel usam translateY para ficarem centralizadas
+   no celular. A regra precisa continuar ativa também durante o toque. */
+@media (max-width:700px){
+    .reviews-carousel__button,
+    .reviews-carousel__button:hover,
+    .reviews-carousel__button:active,
+    .reviews-carousel__button:focus,
+    .reviews-carousel__button:focus-visible{
+        transform:translateY(-50%) !important;
+    }
+}
+
+@media (max-width:600px){
+    /* A linha do painel introdutório passa a crescer conforme o texto. */
+    .product-category-grid{
+        grid-auto-rows:auto;
+        align-items:start;
+    }
+
+    .product-catalog__intro{
+        grid-column:1 / -1;
+        grid-row:auto;
+        width:100%;
+        height:auto;
+        min-height:0;
+        overflow:hidden;
+        padding:30px 24px 28px;
+    }
+
+    .product-catalog__intro .section-tag{
+        margin-bottom:14px;
+    }
+
+    .product-catalog__intro h2{
+        max-width:100%;
+        margin-bottom:16px;
+        font-size:clamp(28px,8.8vw,38px);
+        line-height:1.04;
+        letter-spacing:-.035em;
+        text-wrap:balance;
+        overflow-wrap:anywhere;
+    }
+
+    /* No celular, remove a quebra forçada do HTML e deixa o título
+       se adaptar naturalmente à largura disponível. */
+    .product-catalog__intro h2 br{
+        display:none;
+    }
+
+    .product-catalog__intro > p{
+        display:block;
+        max-width:none;
+        margin:0 0 20px;
+        font-size:14px;
+        line-height:1.62;
+    }
+
+    .product-catalog__stock{
+        width:100%;
+        margin-top:0;
+        padding-top:17px;
+        align-items:flex-start;
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .product-catalog__stock strong{
+        font-size:34px;
+    }
+
+    .product-catalog__stock span{
+        max-width:100%;
+        font-size:10px;
+        line-height:1.5;
+    }
+
+    .product-catalog__intro .product-catalog__button{
+        width:100%;
+        min-height:52px;
+        height:auto;
+        margin-top:20px;
+        padding:14px 18px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        text-align:center;
+        white-space:normal;
+    }
+
+    /* Os cartões continuam com altura uniforme, mesmo com as linhas
+       automáticas usadas pelo painel introdutório. */
+    .product-category-card{
+        height:210px;
+    }
+}
+
+@media (max-width:380px){
+    .product-catalog__intro{
+        padding:27px 20px 25px;
+    }
+
+    .product-catalog__intro h2{
+        font-size:clamp(26px,8.5vw,32px);
+    }
+}
+
+/* =========================================================
+   AJUSTE FINAL — SETAS CIRCULARES E ENCERRAMENTO DA HISTÓRIA
+   O desenho da seta fica em uma camada própria, centralizada
+   por coordenadas, sem depender da linha de base da fonte.
+========================================================= */
+
+.reviews-carousel__button{
+    position:relative;
+}
+
+.reviews-carousel__button,
+.back-top{
+    padding:0 !important;
+    line-height:0 !important;
+    font-size:0 !important;
+    text-indent:0 !important;
+    -webkit-font-smoothing:antialiased;
+    transform-origin:center center;
+}
+
+.circular-arrow{
+    position:absolute;
+    top:50%;
+    left:50%;
+
+    display:block;
+    width:22px;
+    height:22px;
+
+    color:inherit;
+    pointer-events:none;
+    user-select:none;
+
+    transform:translate3d(-50%,-50%,0) !important;
+    transform-origin:center center !important;
+    transition:none !important;
+    backface-visibility:hidden;
+}
+
+.circular-arrow svg{
+    display:block;
+    width:100%;
+    height:100%;
+    overflow:visible;
+
+    fill:none;
+    stroke:currentColor;
+    stroke-width:2.35;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+
+    transform:none !important;
+    transition:none !important;
+    pointer-events:none;
+}
+
+.reviews-carousel__button:hover .circular-arrow,
+.reviews-carousel__button:active .circular-arrow,
+.reviews-carousel__button:focus .circular-arrow,
+.reviews-carousel__button:focus-visible .circular-arrow,
+.back-top:hover .circular-arrow,
+.back-top:active .circular-arrow,
+.back-top:focus .circular-arrow,
+.back-top:focus-visible .circular-arrow{
+    top:50% !important;
+    left:50% !important;
+    transform:translate3d(-50%,-50%,0) !important;
+}
+
+.back-top .circular-arrow{
+    width:23px;
+    height:23px;
+}
+
+.mag-history__finish-marker{
+    display:none;
+}
+
+@media (max-width:800px){
+
+    /* No layout responsivo, a navegação das avaliações é feita pelo
+       gesto horizontal. Os botões laterais ficam totalmente ocultos. */
+    .reviews-carousel__button{
+        display:none !important;
+    }
+
+    /* Valores compartilhados pela linha, pelo cartão final e pelo
+       marcador. Assim todos permanecem exatamente no mesmo eixo. */
+    .mag-history__timeline{
+        --history-rail-x:21px;
+        --history-finish-indent:54px;
+    }
+
+    .mag-history__finish{
+        position:relative;
+        overflow:visible;
+    }
+
+    /* Acrescenta somente o pequeno trecho que falta entre o fim real
+       da linha principal (bottom:120px) e o centro do marcador.
+       Isso evita a segunda linha sobreposta que aparecia no celular. */
+    .mag-history__finish::before{
+        content:"";
+        position:absolute;
+        z-index:0;
+
+        left:calc(
+            var(--history-rail-x)
+            - var(--history-finish-indent)
+            - 1.5px
+        );
+        top:calc(100% - 120px);
+
+        width:3px;
+        height:max(0px, calc(120px - 50%));
+
+        background:linear-gradient(
+            180deg,
+            rgba(255,255,255,.11),
+            rgba(43,154,245,.78)
+        );
+
+        box-shadow:0 0 10px rgba(35,143,240,.28);
+        pointer-events:none;
+    }
+
+    .mag-history__finish::after{
+        content:"";
+        position:absolute;
+        z-index:0;
+
+        left:calc(
+            var(--history-rail-x)
+            - var(--history-finish-indent)
+        );
+        top:50%;
+
+        width:calc(
+            var(--history-finish-indent)
+            - var(--history-rail-x)
+        );
+        height:1px;
+
+        background:linear-gradient(
+            90deg,
+            rgba(64,164,250,.82),
+            rgba(64,164,250,.20)
+        );
+
+        pointer-events:none;
+    }
+
+    .mag-history__finish-marker{
+        position:absolute;
+        z-index:2;
+
+        left:calc(
+            var(--history-rail-x)
+            - var(--history-finish-indent)
+            - 9px
+        );
+        top:50%;
+
+        display:block;
+        width:18px;
+        height:18px;
+
+        box-sizing:border-box;
+        border:3px solid #1687E8;
+        border-radius:50%;
+
+        background:#061421;
+
+        box-shadow:
+            0 0 0 1px rgba(103,188,255,.58),
+            0 0 18px rgba(0,128,235,.55);
+
+        transform:translateY(-50%);
+        pointer-events:none;
+    }
+
+    .mag-history__finish-icon,
+    .mag-history__finish > div{
+        position:relative;
+        z-index:1;
+    }
+}
+
+@media (max-width:600px){
+
+    /* O layout menor usa eixo de 17px e recuo de 44px. Alterar as
+       variáveis mantém linha, bolinha e conector perfeitamente alinhados. */
+    .mag-history__timeline{
+        --history-rail-x:17px;
+        --history-finish-indent:44px;
+    }
+}
+
+/* =========================================================
+   AJUSTE FINAL MOBILE — ENCERRAMENTO DA LINHA DO TEMPO
+   Mantém o desktop intacto e leva o conector ao centro do
+   cartão final, alinhado ao ícone, sem encostar no topo.
+========================================================= */
+@media (max-width:800px){
+
+    .mag-history__rail,
+    .mag-history__progress{
+        bottom:auto;
+        height:var(--history-mobile-rail-height, calc(100% - 120px));
+    }
+
+    .mag-history__finish-marker{
+        display:none !important;
+    }
+
+    /* Continuação vertical: parte exatamente do fim da linha principal
+       e desce até o meio do cartão de encerramento. */
+    .mag-history__finish::before{
+        content:"";
+        position:absolute;
+        z-index:0;
+
+        left:calc(
+            var(--history-rail-x)
+            - var(--history-finish-indent)
+            - 1.5px
+        );
+        top:calc(100% - 120px);
+
+        width:3px;
+        height:max(0px, calc(120px - 50%));
+
+        background:linear-gradient(
+            180deg,
+            rgba(255,255,255,.11),
+            rgba(43,154,245,.82)
+        );
+
+        box-shadow:0 0 10px rgba(35,143,240,.25);
+        pointer-events:none;
+    }
+
+    /* Pequeno conector horizontal centralizado na altura do ícone. */
+    .mag-history__finish::after{
+        content:"";
+        position:absolute;
+        z-index:0;
+
+        display:block !important;
+
+        left:calc(
+            var(--history-rail-x)
+            - var(--history-finish-indent)
+        );
+        top:50%;
+
+        width:calc(
+            var(--history-finish-indent)
+            - var(--history-rail-x)
+        );
+        height:1px;
+
+        background:linear-gradient(
+            90deg,
+            rgba(43,154,245,.88),
+            rgba(64,164,250,.24)
+        );
+
+        box-shadow:0 0 10px rgba(35,143,240,.20);
+        pointer-events:none;
+    }
+}
+
+
+/* =========================================================
+   AJUSTES FINAIS — MENU MOBILE, MARCA INTERSTATE E BOTÕES
+========================================================= */
+
+/* Mantém a logo Interstate-McBee contida dentro do cartão do carrossel. */
+.brand-item{
+    overflow:hidden;
+}
+
+.brand-item img[src*="Logo-IMCB-Standard"],
+.brand-item img[alt*="Interstate-McBee"]{
+    display:block;
+    width:auto;
+    max-width:min(100%,176px) !important;
+    max-height:58px !important;
+    object-fit:contain;
+    transform:none !important;
+}
+
+/*
+ * Evita qualquer mudança de tamanho ao tocar/clicar nos CTAs.
+ * O efeito visual de hover continua igual; apenas o estado pressionado
+ * deixa de aplicar transformações que causavam o "esticamento".
+ */
+.btn-primary:active,
+.product-catalog__button:active,
+.contact-submit:active,
+.contact button:active{
+    transform:none !important;
+}
+
+@media (max-width:992px){
+
+    /*
+     * Quando o cabeçalho está no estado "scrolled", uma regra do desktop
+     * deixava os links escuros sobre o fundo azul do menu mobile.
+     */
+    .navbar.active ul{
+        position:relative;
+        z-index:1;
+    }
+
+    .navbar.active a,
+    .header.scrolled .navbar.active a{
+        color:#FFFFFF !important;
+        opacity:1 !important;
+        visibility:visible !important;
+        text-shadow:none;
+    }
+
+    .navbar.active a::after,
+    .header.scrolled .navbar.active a::after{
+        background:#2389E8 !important;
+    }
+
+    .brand-item img[src*="Logo-IMCB-Standard"],
+    .brand-item img[alt*="Interstate-McBee"]{
+        width:100%;
+        max-width:145px !important;
+        max-height:52px !important;
+    }
+}
+
+/* =========================================================
+   REFINO VISUAL MOBILE — MENU E LINHA DO TEMPO
+   Ajustes finais somente no responsivo.
+========================================================= */
+
+@keyframes mobileMenuItemIn{
+    from{
+        opacity:0;
+        transform:translateY(14px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media (max-width:992px){
+
+    .menu-mobile{
+        background:rgba(7,19,31,.20);
+        border:1px solid rgba(255,255,255,.12);
+        box-shadow:0 18px 40px rgba(0,0,0,.18);
+        backdrop-filter:blur(12px);
+        -webkit-backdrop-filter:blur(12px);
+    }
+
+    .navbar{
+        align-items:flex-start;
+        justify-content:flex-start;
+        padding:118px 22px 34px;
+        background:
+            radial-gradient(circle at top right, rgba(18,124,219,.18), transparent 32%),
+            linear-gradient(180deg, rgba(4,15,27,.985), rgba(4,15,27,.965));
+    }
+
+    .navbar::before{
+        content:"NAVEGAÇÃO";
+        position:absolute;
+        top:96px;
+        left:50%;
+        transform:translateX(-50%);
+        color:rgba(105,190,255,.90);
+        font-size:11px;
+        font-weight:800;
+        letter-spacing:.26em;
+        text-transform:uppercase;
+        opacity:.95;
+    }
+
+    .navbar ul{
+        width:min(100%, 430px);
+        margin:26px auto 0;
+        padding:18px;
+        gap:12px;
+        border-radius:24px;
+        background:rgba(255,255,255,.035);
+        border:1px solid rgba(255,255,255,.08);
+        box-shadow:0 28px 65px rgba(0,0,0,.22);
+        backdrop-filter:blur(16px);
+        -webkit-backdrop-filter:blur(16px);
+    }
+
+    .navbar li{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    .navbar.active li{
+        animation:mobileMenuItemIn .42s ease forwards;
+    }
+
+    .navbar.active li:nth-child(1){ animation-delay:.05s; }
+    .navbar.active li:nth-child(2){ animation-delay:.10s; }
+    .navbar.active li:nth-child(3){ animation-delay:.15s; }
+    .navbar.active li:nth-child(4){ animation-delay:.20s; }
+    .navbar.active li:nth-child(5){ animation-delay:.25s; }
+
+    .navbar a,
+    .header.scrolled .navbar.active a{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:14px;
+        min-height:62px;
+        padding:16px 20px;
+        color:#FFFFFF !important;
+        font-size:20px;
+        font-weight:700;
+        letter-spacing:.06em;
+        text-transform:uppercase;
+        text-align:left;
+        border-radius:16px;
+        background:rgba(255,255,255,.025);
+        border:1px solid rgba(255,255,255,.07);
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+        transition:transform .3s ease, background .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+
+    .navbar a::before{
+        content:"";
+        width:12px;
+        height:12px;
+        border-radius:50%;
+        flex:0 0 12px;
+        background:linear-gradient(135deg, #67BCFF, #0A68C4);
+        box-shadow:0 0 0 5px rgba(25,135,228,.10);
+    }
+
+    .navbar a::after,
+    .header.scrolled .navbar.active a::after{
+        content:"↗";
+        position:static;
+        width:auto;
+        height:auto;
+        background:none !important;
+        color:rgba(255,255,255,.48);
+        font-size:16px;
+        line-height:1;
+        opacity:1;
+        transition:transform .3s ease, color .3s ease;
+    }
+
+    .navbar a:hover,
+    .navbar a:focus-visible,
+    .navbar a.active{
+        background:linear-gradient(135deg, rgba(9,90,175,.40), rgba(255,255,255,.05));
+        border-color:rgba(77,173,255,.35);
+        box-shadow:0 14px 30px rgba(0,0,0,.18);
+        transform:translateX(6px);
+    }
+
+    .navbar a:hover::after,
+    .navbar a:focus-visible::after,
+    .navbar a.active::after{
+        color:#8CD0FF;
+        transform:translateX(2px);
+    }
+}
+
+@media (max-width:800px){
+
+    .mag-history__timeline{
+        padding-left:0;
+    }
+
+    .mag-history__rail,
+    .mag-history__progress{
+        left:23px;
+        top:0;
+        bottom:172px;
+        height:auto !important;
+    }
+
+    .mag-history__finish{
+        position:relative;
+        width:calc(100% - 58px);
+        margin:62px 0 0 58px;
+        padding:20px 22px;
+        min-height:118px;
+        align-items:center;
+        gap:16px;
+        overflow:visible;
+        --finish-link-offset:36px;
+    }
+
+    .mag-history__finish::before{
+        content:"";
+        position:absolute;
+        z-index:0;
+        left:calc(var(--finish-link-offset) * -1);
+        top:-54px;
+        width:3px;
+        height:calc(50% + 54px);
+        background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(33,146,240,.88));
+        box-shadow:0 0 12px rgba(35,143,240,.26);
+        pointer-events:none;
+    }
+
+    .mag-history__finish::after{
+        content:"";
+        position:absolute;
+        z-index:0;
+        left:calc(var(--finish-link-offset) * -1);
+        top:50%;
+        width:var(--finish-link-offset);
+        height:1px;
+        background:linear-gradient(90deg, rgba(64,164,250,.90), rgba(64,164,250,.22));
+        box-shadow:0 0 10px rgba(35,143,240,.18);
+        transform:translateY(-50%);
+        pointer-events:none;
+    }
+
+    .mag-history__finish-marker{
+        display:none !important;
+    }
+
+    .mag-history__finish-icon,
+    .mag-history__finish > div{
+        position:relative;
+        z-index:1;
+    }
+}
+
+@media (max-width:480px){
+
+    .navbar{
+        padding:110px 18px 28px;
+    }
+
+    .navbar::before{
+        top:92px;
+        font-size:10px;
+    }
+
+    .navbar ul{
+        width:100%;
+        margin-top:24px;
+        padding:16px;
+        gap:10px;
+        border-radius:20px;
+    }
+
+    .navbar a,
+    .header.scrolled .navbar.active a{
+        min-height:58px;
+        padding:15px 16px;
+        font-size:18px;
+        border-radius:14px;
+    }
+
+    .mag-history__rail,
+    .mag-history__progress{
+        left:18px;
+        bottom:156px;
+    }
+
+    .mag-history__finish{
+        width:calc(100% - 48px);
+        margin:56px 0 0 48px;
+        padding:18px;
+        min-height:108px;
+        gap:14px;
+        --finish-link-offset:30px;
+    }
+}
+
+/* =========================================================
+   TRABALHE CONOSCO — RESPONSIVO
+========================================================= */
+
+@media (max-width:1100px){
+    .careers__grid{
+        grid-template-columns:1fr;
+        gap:52px;
+    }
+
+    .careers__content{
+        max-width:760px;
+    }
+
+    .careers__form-card{
+        max-width:760px;
+        width:100%;
+    }
+}
+
+@media (max-width:768px){
+    .careers{
+        padding:88px 0;
+    }
+
+    .careers__content h2{
+        font-size:clamp(34px,10vw,46px);
+    }
+
+    .careers__content > p{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .careers__form-card{
+        padding:30px 25px;
+    }
+
+    .careers__form-heading h3{
+        font-size:27px;
+    }
+
+    .career-upload{
+        grid-template-columns:auto minmax(0,1fr);
+    }
+
+    .career-upload__action{
+        grid-column:1 / -1;
+        width:100%;
+    }
+}
+
+@media (max-width:480px){
+    .careers{
+        padding:76px 0;
+    }
+
+    .careers__highlights article{
+        align-items:flex-start;
+        padding:17px;
+    }
+
+    .careers__form-card{
+        padding:26px 19px;
+    }
+
+    .career-upload{
+        min-height:0;
+        padding:17px;
+    }
+
+    .career-upload__icon{
+        width:44px;
+        height:44px;
+    }
+}
+
+@media (max-width:992px){
+    .navbar.active li:nth-child(6){ animation-delay:.30s; }
+}

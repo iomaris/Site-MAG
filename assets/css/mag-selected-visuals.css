@@ -1,0 +1,799 @@
+/* =====================================================================
+   MAG PEÇAS E SERVIÇOS - VISUAIS SELECIONADOS
+   Mantém somente as seções aprovadas do modelo anterior.
+   Carregar depois de style.css e mag-motion-only.css.
+   ===================================================================== */
+
+:root {
+    --mag-naval: #0b3d69;
+    --mag-naval-deep: #061b2f;
+    --mag-celeste: #1886ea;
+    --mag-celeste-soft: #64b5ff;
+    --mag-neblina: #f0f3f9;
+    --mag-orange: #fffefe;
+    --mag-ink: #0a1826;
+    --mag-muted: #607083;
+    --mag-line: rgba(11, 61, 105, .14);
+    --mag-ease: cubic-bezier(.2, .75, .25, 1);
+}
+
+/* =====================================================================
+   1. DIFERENCIAIS - cartões claros aprovados
+   O marcador deixa de ser um quadrado azul chapado: recebe duas tonalidades,
+   brilho diagonal e um pequeno acento laranja.
+   ===================================================================== */
+
+.differentials {
+    padding: 76px 0;
+    background: linear-gradient(180deg, var(--mag-neblina) 0%, #ffffff 100%);
+}
+
+.differentials-grid {
+    gap: 18px;
+}
+
+.differential-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 250px;
+    padding: 34px 27px;
+    border: 1px solid var(--mag-line);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, .94);
+    text-align: left;
+    box-shadow: 0 14px 36px rgba(6, 34, 59, .07);
+    transition:
+        transform .5s var(--mag-ease),
+        box-shadow .5s var(--mag-ease),
+        border-color .35s ease;
+}
+
+.differential-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    background: linear-gradient(145deg, rgba(24, 134, 234, .085), transparent 48%);
+    transition: opacity .35s ease;
+}
+
+.differential-card::after {
+    content: "";
+    position: absolute;
+    right: -58px;
+    bottom: -58px;
+    width: 138px;
+    height: 138px;
+    border: 1px solid rgba(24, 134, 234, .13);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 22px rgba(24, 134, 234, .026),
+        0 0 0 44px rgba(24, 134, 234, .018);
+    transition: transform .55s var(--mag-ease);
+}
+
+.differential-card:hover {
+    transform: translateY(-9px);
+    border-color: rgba(24, 134, 234, .30);
+    box-shadow: 0 30px 70px rgba(4, 25, 44, .14);
+}
+
+.differential-card:hover::before {
+    opacity: 1;
+}
+
+.differential-card:hover::after {
+    transform: scale(1.13);
+}
+
+.differential-icon {
+    position: relative;
+    isolation: isolate;
+    width: 48px;
+    height: 48px;
+    margin: 0 0 31px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .32);
+    border-radius: 5px;
+    background:
+        linear-gradient(135deg, var(--mag-naval) 0 55%, var(--mag-celeste) 55% 100%);
+    color: #fff;
+    box-shadow: 0 12px 28px rgba(11, 61, 105, .24);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.differential-icon::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -20% 38% -20% -18%;
+    transform: skewX(-18deg);
+    background: linear-gradient(90deg, rgba(255, 255, 255, .16), transparent);
+}
+
+.differential-icon::after {
+    content: "";
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--mag-orange);
+    box-shadow: 0 0 10px rgba(242, 140, 40, .68);
+}
+
+.differential-icon span {
+    position: relative;
+    z-index: 2;
+}
+
+.differential-card h3 {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 14px;
+    color: var(--mag-ink);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.differential-card p {
+    position: relative;
+    z-index: 1;
+    color: var(--mag-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =====================================================================
+   2. SERVIÇOS - grade escura aprovada
+   ===================================================================== */
+
+.services {
+    overflow: hidden;
+    background: var(--mag-naval-deep);
+}
+
+.services::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .07;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .13) 1px, transparent 1px);
+    background-size: 78px 78px;
+}
+
+.services .container {
+    position: relative;
+    z-index: 2;
+}
+
+.services .section-tag,
+.services .section-title h2,
+.services .section-title p {
+    color: #fff;
+}
+
+.services-grid {
+    gap: 18px;
+}
+
+.service-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 280px;
+    padding: 35px 28px;
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, .045);
+    backdrop-filter: blur(10px);
+    box-shadow: none;
+    transition:
+        transform .5s var(--mag-ease),
+        background .35s ease,
+        border-color .35s ease,
+        box-shadow .45s ease;
+}
+
+.service-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    background: linear-gradient(145deg, rgba(24, 134, 234, .18), transparent 58%, rgba(242, 140, 40, .08));
+    transition: opacity .35s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-9px);
+    border-color: rgba(100, 181, 255, .34);
+    background: rgba(24, 134, 234, .075);
+    box-shadow: 0 28px 65px rgba(0, 0, 0, .18);
+}
+
+.service-card:hover::after {
+    opacity: 1;
+}
+
+.service-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.service-card > span {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 27px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .065);
+    color: var(--mag-orange);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.service-card h3 {
+    margin-bottom: 16px;
+    color: #fff;
+    font-size: 21px;
+    line-height: 1.15;
+}
+
+.service-card p {
+    color: rgba(255, 255, 255, .68);
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+/* =====================================================================
+   3. GALERIA — mosaico original com vídeo no bloco principal
+   ===================================================================== */
+
+.gallery {
+    background: var(--mag-neblina);
+}
+
+.gallery .section-title {
+    margin-bottom: 58px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, 285px);
+    gap: 7px;
+    max-width: 1120px;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.gallery-grid > .gallery-media {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 5px;
+    object-fit: cover;
+    box-shadow: none;
+    filter: saturate(.92);
+    transition:
+        transform .62s var(--mag-ease),
+        filter .45s ease,
+        box-shadow .45s ease;
+}
+
+/* Vídeo principal: ocupa exatamente o lugar da antiga foto do técnico */
+.gallery-grid > :nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.gallery-grid > :nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.gallery-grid > :nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.gallery-grid > :nth-child(4) {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+}
+
+.gallery-grid > :nth-child(5) {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.gallery-grid > :nth-child(6) {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.gallery-grid > :nth-child(7) {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.gallery-grid > .gallery-media:hover {
+    position: relative;
+    z-index: 3;
+    transform: scale(1.025);
+    filter: saturate(1.06) brightness(1.02);
+    box-shadow: 0 28px 65px rgba(4, 25, 44, .20);
+}
+
+/* =====================================================================
+   4. CTA - composição aprovada, sem o círculo branco decorativo
+   ===================================================================== */
+
+.cta {
+    overflow: hidden;
+    background: linear-gradient(125deg, var(--mag-naval-deep), var(--mag-naval));
+}
+
+.cta::before,
+.cta::after {
+    content: none !important;
+    display: none !important;
+}
+
+.cta-content h2,
+.cta-content p,
+.cta-content span {
+    color: #fff;
+}
+
+.cta-content p {
+    opacity: .76;
+}
+
+.cta .btn-primary {
+    border-radius: 5px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .14);
+}
+
+/* =====================================================================
+   5. AVALIAÇÕES - visual claro aprovado
+   ===================================================================== */
+
+.google-reviews {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(24, 134, 234, .085), transparent 31%),
+        linear-gradient(180deg, #ffffff, #eef3f8);
+}
+
+.google-reviews::before {
+    opacity: .035;
+    background-image:
+        linear-gradient(rgba(11, 61, 105, .55) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11, 61, 105, .55) 1px, transparent 1px);
+    background-size: 78px 78px;
+}
+
+.google-reviews::after {
+    opacity: .55;
+}
+
+.google-review-card {
+    overflow: hidden;
+    border: 1px solid rgba(11, 61, 105, .12);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, .82);
+    box-shadow: 0 20px 55px rgba(4, 25, 44, .085);
+    backdrop-filter: blur(10px);
+}
+
+.google-review-card:hover {
+    border-color: rgba(24, 134, 234, .28);
+    box-shadow: 0 32px 78px rgba(4, 25, 44, .14);
+}
+
+/* =====================================================================
+   6. MAPA - cartão escuro aprovado
+   ===================================================================== */
+
+.map-location {
+    min-height: 630px;
+}
+
+.map-location iframe {
+    min-height: 630px;
+    filter: saturate(.72) contrast(1.03);
+    transition: filter .45s ease;
+}
+
+.map-location:hover iframe {
+    filter: saturate(.96) contrast(1.01);
+}
+
+.map-location__card {
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 6px;
+    background: rgba(5, 25, 43, .91);
+    box-shadow: 0 32px 82px rgba(0, 0, 0, .27);
+    backdrop-filter: blur(18px) saturate(115%);
+}
+
+.map-location__button {
+    background: linear-gradient(135deg, var(--mag-celeste), #0967bf);
+}
+
+/* =====================================================================
+   7. RODAPÉ - composição escura aprovada
+   ===================================================================== */
+
+footer {
+    position: relative;
+    overflow: hidden;
+    background: #041321;
+}
+
+footer::before {
+    opacity: .045;
+    background-size: 86px 86px;
+}
+
+footer .container {
+    position: relative;
+    z-index: 2;
+}
+
+footer a {
+    transition: color .3s ease, transform .3s ease;
+}
+
+footer a:hover {
+    color: var(--mag-celeste-soft);
+}
+
+/* =====================================================================
+   RESPONSIVO
+   ===================================================================== */
+
+@media (max-width: 1050px) {
+    .differential-card {
+        min-height: 230px;
+    }
+
+    .service-card {
+        min-height: 250px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(4, 260px);
+    }
+
+    .gallery-grid > .gallery-media {
+        grid-column: auto;
+        grid-row: auto;
+        height: 260px;
+    }
+
+    .gallery-grid > :nth-child(1),
+    .gallery-grid > :nth-child(4) {
+        grid-row: span 2;
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .differentials {
+        padding: 62px 0;
+    }
+
+    .differential-card {
+        min-height: 0;
+        padding: 30px 24px;
+    }
+
+    .differential-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 24px;
+    }
+
+    .service-card {
+        min-height: 0;
+        padding: 30px 24px;
+    }
+
+    .gallery .section-title {
+        margin-bottom: 40px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        gap: 10px;
+    }
+
+    .gallery-grid > .gallery-media,
+    .gallery-grid > :nth-child(1),
+    .gallery-grid > :nth-child(4) {
+        grid-column: auto;
+        grid-row: auto;
+        width: 100%;
+        height: 280px;
+    }
+
+    .cta .container {
+        grid-template-columns: 1fr;
+    }
+
+    .map-location,
+    .map-location iframe {
+        min-height: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .differential-card,
+    .service-card,
+    .gallery-grid img,
+.gallery-grid video,
+    .map-location iframe {
+        transition: none;
+    }
+}
+
+/* =====================================================================
+   CONTATO FUNCIONAL — LINKS E RETORNO DO FORMULÁRIO
+   ===================================================================== */
+
+.contact-link{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:inherit;
+    overflow-wrap:anywhere;
+}
+
+.contact-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:100%;
+    height:1px;
+    background:var(--primary);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .3s ease;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible{
+    color:var(--primary);
+}
+
+.contact-link:hover::after,
+.contact-link:focus-visible::after{
+    transform:scaleX(1);
+}
+
+.sr-only{
+    position:absolute !important;
+    width:1px !important;
+    height:1px !important;
+    padding:0 !important;
+    margin:-1px !important;
+    overflow:hidden !important;
+    clip:rect(0,0,0,0) !important;
+    white-space:nowrap !important;
+    border:0 !important;
+}
+
+.form-honeypot{
+    position:absolute !important;
+    left:-9999px !important;
+    width:1px !important;
+    height:1px !important;
+    opacity:0 !important;
+    pointer-events:none !important;
+}
+
+.contact-submit{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:11px;
+}
+
+.contact-submit:disabled{
+    cursor:not-allowed;
+    opacity:.72;
+    transform:none !important;
+}
+
+.contact-submit.is-loading i{
+    animation:contactPlanePulse .9s ease-in-out infinite alternate;
+}
+
+.contact-form-status{
+    min-height:24px;
+    margin:16px 0 0;
+    font-size:14px;
+    line-height:1.55;
+    text-align:center;
+}
+
+.contact-form-status:empty{
+    display:none;
+}
+
+.contact-form-status.is-loading{
+    color:#607083;
+}
+
+.contact-form-status.is-success{
+    color:#157347;
+}
+
+.contact-form-status.is-error{
+    color:#b42318;
+}
+
+@keyframes contactPlanePulse{
+    from{ transform:translateX(-2px); opacity:.65; }
+    to{ transform:translateX(3px); opacity:1; }
+}
+
+/* =====================================================================
+   CORREÇÃO DEFINITIVA DO MAPA E DOS MARCADORES DOS DIFERENCIAIS
+   ===================================================================== */
+
+.differential-card::after{
+    content:none !important;
+    display:none !important;
+}
+
+.differential-icon{
+    width:auto !important;
+    height:auto !important;
+    min-width:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:12px !important;
+    margin:0 0 26px !important;
+    padding:0 !important;
+    color:#0757A7 !important;
+    background:transparent !important;
+    border:0 !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    font-size:14px !important;
+    line-height:1 !important;
+    font-weight:800 !important;
+    letter-spacing:.12em !important;
+}
+
+.differential-icon::before{
+    content:none !important;
+    display:none !important;
+}
+
+.differential-icon::after{
+    content:"" !important;
+    position:static !important;
+    display:block !important;
+    width:42px !important;
+    height:2px !important;
+    border-radius:999px !important;
+    background:#0757A7 !important;
+    box-shadow:none !important;
+    opacity:.28 !important;
+}
+
+.map-location{
+    min-height:520px !important;
+}
+
+.map-location iframe{
+    display:block !important;
+    width:100% !important;
+    height:520px !important;
+    min-height:520px !important;
+}
+
+.map-location__card{
+    top:50% !important;
+    bottom:auto !important;
+    transform:translateY(-50%) !important;
+    width:min(350px, calc(100% - 40px)) !important;
+    max-height:calc(100% - 50px) !important;
+    padding:28px !important;
+    overflow:auto !important;
+}
+
+.map-location__card h2{
+    margin-bottom:14px !important;
+    font-size:32px !important;
+    line-height:1.08 !important;
+}
+
+.map-location__card p{
+    margin-bottom:18px !important;
+    font-size:15px !important;
+    line-height:1.5 !important;
+}
+
+.map-location__tag{
+    margin-bottom:14px !important;
+}
+
+.map-location__button{
+    min-height:44px !important;
+}
+
+@media (max-width:768px){
+
+    .map-location{
+        display:flex !important;
+        flex-direction:column !important;
+        min-height:auto !important;
+    }
+
+    .map-location iframe{
+        height:360px !important;
+        min-height:360px !important;
+    }
+
+    .map-location__card{
+        position:relative !important;
+        top:auto !important;
+        left:auto !important;
+        bottom:auto !important;
+        width:100% !important;
+        max-height:none !important;
+        padding:32px 7% !important;
+        transform:none !important;
+        overflow:visible !important;
+    }
+}
+
+/* =====================================================================
+   AJUSTES DE INTEGRAÇÃO — MAPA E FORMULÁRIO
+   ===================================================================== */
+
+.map-location iframe{
+    position:relative;
+    z-index:1;
+    background:#e9eef3 !important;
+}
+
+.map-location__card{
+    z-index:5 !important;
+}
+
+.contact-form-help{
+    display:block;
+    margin-top:14px;
+    color:#77879a;
+    font-size:12px;
+    line-height:1.55;
+    text-align:center;
+    text-transform:none;
+}
+
+.contact-submit.is-loading{
+    cursor:wait;
+}
+

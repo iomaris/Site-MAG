@@ -1,0 +1,59 @@
+/* =====================================================================
+   MAG PEÇAS E SERVIÇOS — SOMENTE MOVIMENTO
+   Esta camada NÃO altera cores, fundos, tipografia, tamanhos ou layout.
+   Ela acrescenta apenas animações de entrada e preparação para efeitos 3D.
+   ===================================================================== */
+
+.mag-motion-reveal {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0);
+    transition:
+        opacity .82s cubic-bezier(.2, .75, .25, 1),
+        transform .82s cubic-bezier(.2, .75, .25, 1);
+    transition-delay: var(--mag-motion-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.mag-motion-reveal.mag-motion-left {
+    transform: translate3d(-34px, 0, 0);
+}
+
+.mag-motion-reveal.mag-motion-right {
+    transform: translate3d(34px, 0, 0);
+}
+
+.mag-motion-reveal.mag-motion-scale {
+    transform: translate3d(0, 18px, 0) scale(.975);
+}
+
+.mag-motion-reveal.mag-motion-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+.mag-motion-tilt {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.mag-motion-image {
+    will-change: transform;
+    transition: transform .55s cubic-bezier(.2, .75, .25, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mag-motion-reveal,
+    .mag-motion-reveal.mag-motion-left,
+    .mag-motion-reveal.mag-motion-right,
+    .mag-motion-reveal.mag-motion-scale {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .mag-motion-tilt,
+    .mag-motion-image {
+        transform: none !important;
+        transition: none !important;
+    }
+}

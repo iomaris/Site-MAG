@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trabalhe conosco | MAG Peças e Serviços</title>
+
+    <meta
+        name="description"
+        content="Envie seu currículo em PDF para o banco de talentos da MAG Peças e Serviços.">
+    <meta name="theme-color" content="#07131F">
+
+    <link rel="icon" href="assets/img/logo/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/cookie-consent.css">
+    <link rel="stylesheet" href="assets/css/trabalhe-conosco.css?v=1.0">
+</head>
+<body>
+
+
+    <main>
+        <section class="career-page-intro">
+            <div class="career-container career-page-intro__grid">
+                <div class="career-page-copy">
+               
+
+                    <h1>Construa sua trajetória profissional com a MAG</h1>
+
+                    <p class="career-page-lead">
+                        Estamos sempre abertos a conhecer profissionais comprometidos,
+                        responsáveis e interessados em crescer com a nossa equipe.
+                        Envie seu currículo para o banco de talentos da MAG.
+                    </p>
+
+                    <div class="career-page-benefits" aria-label="Informações sobre o envio do currículo">
+                        <article>
+                            <span class="career-page-benefit-icon" aria-hidden="true">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </span>
+                            <div>
+                                <strong>Currículo em PDF</strong>
+                                <p>Envie um arquivo de até 10 MB diretamente pelo site.</p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <span class="career-page-benefit-icon" aria-hidden="true">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </span>
+                            <div>
+                                <strong>Banco de talentos</strong>
+                                <p>Seu perfil poderá ser considerado em futuras oportunidades.</p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <span class="career-page-benefit-icon" aria-hidden="true">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </span>
+                            <div>
+                                <strong>Tratamento responsável</strong>
+                                <p>Os dados serão utilizados apenas para processos seletivos da MAG.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="career-page-form-card">
+                    <div class="career-page-form-heading">
+                        
+                        <h2>Envie seus dados</h2>
+                        <p>Preencha seu nome e selecione o currículo em formato PDF.</p>
+                    </div>
+
+                    <form
+                        id="career-form"
+                        action="https://formsubmit.co/fiscal@magmotores.com.br"
+                        method="POST"
+                        enctype="multipart/form-data">
+
+                        <input
+                            type="hidden"
+                            name="_subject"
+                            value="[SITE MAG] Novo currículo recebido">
+
+                        <input
+                            type="hidden"
+                            name="_template"
+                            value="table">
+
+                        <input
+                            type="hidden"
+                            name="_captcha"
+                            value="false">
+
+                        <input
+                            type="hidden"
+                            name="_next"
+                            value="https://site-mag-sigma.vercel.app/curriculo-enviado.html">
+
+                        <input
+                            type="hidden"
+                            name="Origem"
+                            value="Página Trabalhe conosco — Site MAG">
+
+                        <input
+                            class="career-honeypot"
+                            type="text"
+                            name="_honey"
+                            tabindex="-1"
+                            autocomplete="off"
+                            aria-hidden="true">
+
+                        <div class="career-field">
+                            <label for="career-name">Nome completo</label>
+                            <input
+                                id="career-name"
+                                type="text"
+                                name="Nome completo"
+                                placeholder="Digite seu nome completo"
+                                autocomplete="name"
+                                minlength="2"
+                                required>
+                        </div>
+
+                        <div class="career-field">
+                            <label for="career-resume">Currículo em PDF</label>
+
+                            <label class="career-file" for="career-resume">
+                                <span class="career-file__icon" aria-hidden="true">
+                                    <i class="fa-solid fa-file-arrow-up"></i>
+                                </span>
+
+                                <span class="career-file__content">
+                                    <strong>Selecionar currículo</strong>
+                                    <small>Arquivo PDF com até 10 MB</small>
+                                </span>
+
+                                <span class="career-file__button">Escolher arquivo</span>
+                            </label>
+
+                            <input
+                                id="career-resume"
+                                class="career-file__input"
+                                type="file"
+                                name="attachment"
+                                accept=".pdf,application/pdf"
+                                required>
+
+                            <p id="career-file-name" class="career-file__name">
+                                Nenhum arquivo selecionado.
+                            </p>
+                        </div>
+
+                        <label class="career-privacy">
+                            <input
+                                type="checkbox"
+                                name="Aceite de privacidade"
+                                value="Autorizo o tratamento dos dados enviados para processos seletivos"
+                                required>
+
+                            <span>
+                                Autorizo o tratamento dos dados enviados para contato e participação
+                                em processos seletivos da MAG, conforme a
+                                <a href="privacidade-e-seguranca.html" target="_blank" rel="noopener noreferrer">
+                                    Política de Privacidade
+                                </a>.
+                            </span>
+                        </label>
+
+                        <button class="career-submit" type="submit">
+                            <span class="career-submit__text">Enviar currículo</span>
+                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+
+                        <p
+                            id="career-form-status"
+                            class="career-form-status"
+                            role="status"
+                            aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+
+    <script src="assets/js/trabalhe-conosco.js?v=1.0"></script>
+    <script src="assets/js/cookie-consent.js"></script>
+</body>
+</html>
