@@ -2009,3 +2009,308 @@ section[id]{
 @media (max-width:992px){
     .navbar.active li:nth-child(6){ animation-delay:.30s; }
 }
+
+/* =========================================================
+   AJUSTE PROFISSIONAL — MENU MOBILE E PROCESSO COM MOTOR 3D
+========================================================= */
+
+@media (max-width:992px){
+
+    /* Menu limpo: remove caixas, brilhos e elementos futuristas. */
+    .navbar{
+        align-items:center;
+        justify-content:center;
+        padding:104px 30px 42px;
+        background:#07131F;
+    }
+
+    .navbar::before{
+        content:"MENU";
+        top:118px;
+        color:rgba(255,255,255,.48);
+        font-size:11px;
+        letter-spacing:.18em;
+        font-weight:700;
+    }
+
+    .navbar ul{
+        counter-reset:mag-menu;
+        width:min(100%,360px);
+        margin:48px auto 0;
+        padding:0;
+        gap:0;
+        background:transparent;
+        border:0;
+        border-radius:0;
+        box-shadow:none;
+        backdrop-filter:none;
+        -webkit-backdrop-filter:none;
+    }
+
+    .navbar li{
+        counter-increment:mag-menu;
+        opacity:1;
+        transform:none;
+        border-bottom:1px solid rgba(255,255,255,.13);
+    }
+
+    .navbar li:first-child{
+        border-top:1px solid rgba(255,255,255,.13);
+    }
+
+    .navbar.active li{
+        animation:none;
+    }
+
+    .navbar a,
+    .header.scrolled .navbar.active a{
+        min-height:70px;
+        padding:18px 4px;
+        justify-content:flex-start;
+        gap:20px;
+        color:#FFFFFF !important;
+        background:transparent;
+        border:0;
+        border-radius:0;
+        box-shadow:none;
+        font-size:21px;
+        font-weight:600;
+        letter-spacing:.025em;
+        text-align:left;
+        transform:none;
+    }
+
+    .navbar a::before{
+        content:"0" counter(mag-menu);
+        display:block;
+        width:30px;
+        height:auto;
+        flex:0 0 30px;
+        color:#4A9BE2;
+        background:none;
+        border-radius:0;
+        box-shadow:none;
+        font-size:11px;
+        line-height:1;
+        font-weight:800;
+        letter-spacing:.08em;
+    }
+
+    .navbar a::after,
+    .header.scrolled .navbar.active a::after{
+        content:"";
+        position:static;
+        width:0;
+        height:0;
+        margin-left:auto;
+        background:none !important;
+    }
+
+    .navbar a:hover,
+    .navbar a:focus-visible,
+    .navbar a.active{
+        color:#78BDF7 !important;
+        background:transparent;
+        border-color:transparent;
+        box-shadow:none;
+        transform:none;
+    }
+
+    .menu-mobile{
+        background:rgba(7,19,31,.36);
+        border:1px solid rgba(255,255,255,.14);
+        border-radius:6px;
+        box-shadow:none;
+        backdrop-filter:none;
+        -webkit-backdrop-filter:none;
+    }
+
+    .advantages-process{
+        padding:90px 0;
+    }
+
+    .advantages-process__header{
+        margin-bottom:46px;
+        text-align:left;
+    }
+
+    .advantages-process__header .section-tag{
+        justify-content:flex-start;
+    }
+
+    .advantages-process__header h2{
+        margin-left:0;
+        font-size:clamp(34px,7vw,48px);
+    }
+
+    .advantages-process__layout{
+        grid-template-columns:1fr;
+        gap:42px;
+    }
+
+    .advantages-engine{
+        order:-1;
+    }
+
+    .advantages-engine__viewer{
+        min-height:430px;
+    }
+}
+
+@media (max-width:600px){
+
+    .navbar{
+        padding:96px 24px 34px;
+    }
+
+    .navbar::before{
+        top:105px;
+    }
+
+    .navbar ul{
+        width:100%;
+        margin-top:42px;
+        padding:0;
+    }
+
+    .navbar a,
+    .header.scrolled .navbar.active a{
+        min-height:64px;
+        padding:16px 2px;
+        font-size:19px;
+    }
+
+    .advantages-process{
+        padding:76px 0;
+    }
+
+    .advantages-process__header{
+        margin-bottom:34px;
+    }
+
+    .advantages-process__header h2{
+        font-size:clamp(31px,9.5vw,40px);
+        line-height:1.08;
+    }
+
+    .advantages-engine__heading{
+        padding:23px 22px 19px;
+    }
+
+    .advantages-engine__heading strong{
+        font-size:21px;
+    }
+
+    .advantages-engine__viewer{
+        min-height:350px;
+    }
+
+    .advantages-engine__footer{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:8px;
+        padding:14px 18px;
+    }
+
+    .advantages-process .advantage{
+        grid-template-columns:54px minmax(0,1fr);
+        gap:16px;
+        padding:23px 0;
+    }
+
+    .advantages-process .advantage > span{
+        font-size:34px;
+    }
+
+    .advantages-process .advantage h3{
+        font-size:19px;
+    }
+
+    .advantages-process .advantage p{
+        font-size:15px;
+        line-height:1.65;
+    }
+}
+
+
+/* =========================================================
+   MOTOR 3D LIMPO — RESPONSIVO
+========================================================= */
+
+@media (max-width:1100px){
+    .advantages-engine--clean .advantages-engine__viewer{
+        min-height:500px;
+    }
+}
+
+@media (max-width:768px){
+    .advantages-engine.advantages-engine--clean{
+        order:-1;
+        width:100%;
+    }
+
+    .advantages-engine--clean .advantages-engine__viewer{
+        min-height:420px;
+    }
+
+    .advantages-engine--clean .advantages-engine__viewer iframe{
+        inset:-5% -12%;
+        width:124%;
+        height:110%;
+    }
+}
+
+@media (max-width:480px){
+    .advantages-engine--clean .advantages-engine__viewer{
+        min-height:340px;
+    }
+
+    .advantages-engine--clean .advantages-engine__viewer iframe{
+        inset:-4% -18%;
+        width:136%;
+        height:108%;
+    }
+}
+
+/* =========================================================
+   MOTOR 3D ISOLADO — AJUSTES RESPONSIVOS
+========================================================= */
+
+@media (max-width:1100px){
+    .advantages-engine--clean .advantages-engine__viewer{
+        min-height:500px;
+    }
+
+    .advantages-engine--clean .advantages-engine__viewer iframe{
+        top:-10%;
+        left:-15%;
+        width:130%;
+        height:124%;
+    }
+}
+
+@media (max-width:768px){
+    .advantages-engine--clean .advantages-engine__viewer{
+        min-height:410px;
+    }
+
+    .advantages-engine--clean .advantages-engine__viewer iframe{
+        top:-9%;
+        left:-20%;
+        width:140%;
+        height:122%;
+    }
+}
+
+@media (max-width:480px){
+    .advantages-engine--clean .advantages-engine__viewer{
+        min-height:330px;
+    }
+
+    .advantages-engine--clean .advantages-engine__viewer iframe{
+        top:-8%;
+        left:-25%;
+        width:150%;
+        height:118%;
+    }
+}

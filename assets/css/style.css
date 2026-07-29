@@ -7356,3 +7356,272 @@ TRABALHE CONOSCO
 .career-form-status.is-error{
     color:#FFB0B0;
 }
+
+/* =========================================================
+   COMO TRABALHAMOS — PROCESSO COM MOTOR 3D
+   Visual profissional, limpo e alinhado à identidade MAG.
+========================================================= */
+
+.advantages-process{
+    padding:120px 0;
+    background:#FFFFFF;
+    border-top:1px solid #E8EDF2;
+    overflow:hidden;
+}
+
+.advantages-process .container{
+    display:block;
+}
+
+.advantages-process__header{
+    max-width:940px;
+    margin:0 auto 64px;
+    text-align:center;
+}
+
+.advantages-process__header .section-tag{
+    justify-content:center;
+}
+
+.advantages-process__header h2{
+    max-width:900px;
+    margin:0 auto;
+    color:#0A345F;
+    font-size:clamp(38px,4.7vw,64px);
+    line-height:1.06;
+    letter-spacing:-.035em;
+    text-wrap:balance;
+}
+
+.advantages-process__layout{
+    display:grid;
+    grid-template-columns:minmax(420px,.92fr) minmax(500px,1.08fr);
+    align-items:center;
+    gap:clamp(48px,6vw,90px);
+}
+
+.advantages-process__steps{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+
+.advantages-process .advantage{
+    display:grid;
+    grid-template-columns:76px minmax(0,1fr);
+    align-items:start;
+    gap:24px;
+    padding:27px 0;
+    background:transparent;
+    border:0;
+    border-bottom:1px solid #DDE5EC;
+    border-radius:0;
+    box-shadow:none;
+    transition:transform .3s ease,border-color .3s ease;
+}
+
+.advantages-process .advantage:first-child{
+    border-top:1px solid #DDE5EC;
+}
+
+.advantages-process .advantage:hover{
+    transform:translateX(8px);
+    border-color:#9DC7EC;
+    box-shadow:none;
+}
+
+.advantages-process .advantage > span{
+    min-width:0;
+    color:#0C6FC8;
+    font-size:42px;
+    line-height:1;
+    font-weight:300;
+    letter-spacing:-.05em;
+}
+
+.advantages-process .advantage h3{
+    margin:0 0 9px;
+    color:#0B355E;
+    font-size:21px;
+    line-height:1.25;
+    font-weight:800;
+    letter-spacing:.01em;
+}
+
+.advantages-process .advantage p{
+    margin:0;
+    color:#657485;
+    font-size:16px;
+    line-height:1.7;
+}
+
+.advantages-engine{
+    position:relative;
+    min-width:0;
+    overflow:hidden;
+    background:#071827;
+    border:1px solid #15334D;
+    border-radius:8px;
+    box-shadow:0 30px 70px rgba(7,24,39,.18);
+}
+
+.advantages-engine__heading{
+    padding:28px 32px 24px;
+    border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.advantages-engine__heading span{
+    display:block;
+    margin-bottom:8px;
+    color:#68B7F8;
+    font-size:11px;
+    line-height:1.4;
+    font-weight:800;
+    letter-spacing:.18em;
+}
+
+.advantages-engine__heading strong{
+    display:block;
+    margin-bottom:8px;
+    color:#FFFFFF;
+    font-size:25px;
+    line-height:1.25;
+    font-weight:700;
+}
+
+.advantages-engine__heading p{
+    margin:0;
+    color:rgba(255,255,255,.66);
+    font-size:14px;
+    line-height:1.6;
+}
+
+.advantages-engine__viewer{
+    position:relative;
+    width:100%;
+    min-height:480px;
+    background:
+        radial-gradient(circle at center,rgba(28,127,210,.20),transparent 56%),
+        #071827;
+}
+
+.advantages-engine__viewer iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+}
+
+.advantages-engine__footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:16px 24px;
+    color:rgba(255,255,255,.56);
+    background:#06131F;
+    border-top:1px solid rgba(255,255,255,.08);
+    font-size:12px;
+}
+
+.advantages-engine__footer a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:#88C9FF;
+    font-weight:700;
+}
+
+.advantages-engine__footer a:hover{
+    color:#FFFFFF;
+}
+
+
+/* =========================================================
+   MOTOR 3D SEM CARTÃO — AJUSTE SOLICITADO
+   Mantém somente o modelo interativo, sem fundo azul, título
+   interno, rodapé, borda ou sombra de cartão.
+========================================================= */
+
+.advantages-engine.advantages-engine--clean{
+    position:relative;
+    min-width:0;
+    overflow:visible;
+    background:transparent;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+}
+
+.advantages-engine--clean .advantages-engine__viewer{
+    position:relative;
+    width:100%;
+    min-height:560px;
+    overflow:visible;
+    background:transparent;
+}
+
+.advantages-engine--clean .advantages-engine__viewer iframe{
+    position:absolute;
+    inset:-8% -8%;
+    width:116%;
+    height:116%;
+    display:block;
+    border:0;
+    background:transparent;
+}
+
+/* =========================================================
+   MOTOR 3D ISOLADO — SEM INTERFACE VISÍVEL DO VISUALIZADOR
+========================================================= */
+
+.advantages-engine.advantages-engine--clean{
+    background:transparent;
+    border:0;
+    box-shadow:none;
+    overflow:visible;
+}
+
+.advantages-engine--clean .advantages-engine__viewer{
+    position:relative;
+    min-height:560px;
+    overflow:hidden;
+    background:#FFFFFF;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+    isolation:isolate;
+}
+
+.advantages-engine--clean .advantages-engine__viewer::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
+    background:#FFFFFF;
+    pointer-events:none;
+}
+
+.advantages-engine--clean .advantages-engine__viewer iframe{
+    position:absolute;
+    z-index:1;
+    top:-10%;
+    left:-12%;
+    width:124%;
+    height:124%;
+    display:block;
+    border:0;
+    background:#FFFFFF;
+    opacity:0;
+    transition:opacity .35s ease;
+}
+
+.advantages-engine--clean .advantages-engine__viewer iframe.is-ready{
+    opacity:1;
+}
+
+.advantages-engine--clean .advantages-engine__viewer iframe.has-error{
+    opacity:0;
+}
