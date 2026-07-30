@@ -7625,3 +7625,45 @@ TRABALHE CONOSCO
 .advantages-engine--clean .advantages-engine__viewer iframe.has-error{
     opacity:0;
 }
+
+/* =========================================================
+   MOTOR 3D — RECORTE LIMPO DO VISUALIZADOR
+   Mantém apenas a área útil do motor e cobre os elementos
+   residuais do serviço externo nas bordas superior e inferior.
+========================================================= */
+
+.advantages-engine--clean .advantages-engine__viewer{
+    position:relative;
+    overflow:hidden;
+    background:#FFFFFF;
+}
+
+.advantages-engine--clean .advantages-engine__viewer::before,
+.advantages-engine--clean .advantages-engine__viewer::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    z-index:4;
+    display:block;
+    background:#FFFFFF;
+    pointer-events:none;
+}
+
+.advantages-engine--clean .advantages-engine__viewer::before{
+    top:0;
+    height:48px;
+}
+
+.advantages-engine--clean .advantages-engine__viewer::after{
+    bottom:0;
+    height:58px;
+}
+
+.advantages-engine--clean .advantages-engine__viewer iframe{
+    top:-12% !important;
+    left:-12% !important;
+    width:124% !important;
+    height:124% !important;
+    background:#FFFFFF !important;
+}

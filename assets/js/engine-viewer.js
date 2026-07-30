@@ -36,6 +36,8 @@
         ui_annotations:0,
         ui_animations:0,
         ui_watermark:0,
+        ui_loading:0,
+        ui_fadeout:0,
 
         success:function onSuccess(api){
             api.start();
