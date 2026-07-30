@@ -50,7 +50,7 @@
 
     <!-- CSS -->
 
-    <link rel="stylesheet" href="assets/css/style.css?v=29.2">
+    <link rel="stylesheet" href="assets/css/style.css?v=30.1">
 
     <link rel="stylesheet" href="assets/css/mag-motion-only.css">
 
@@ -58,7 +58,7 @@
 
     <link rel="stylesheet" href="assets/css/cookie-consent.css">
 
-    <link rel="stylesheet" href="assets/css/responsive.css?v=29.2">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=30.1">
 
 </head>
 
@@ -188,7 +188,12 @@
 
         <section class="hero" id="inicio">
 
-            <video autoplay muted loop playsinline>
+            <video autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-poster.webp">
+
+                <source
+                    src="assets/video/hero-mobile.mp4"
+                    type="video/mp4"
+                    media="(max-width: 768px)">
 
                 <source
                     src="assets/video/hero.mp4"
@@ -317,8 +322,10 @@
                     <div class="about-image large">
 
                         <img
-                            src="assets/img/sobre/mag.png"
-                            alt="Equipe MAG">
+                            src="assets/img/sobre/mag.webp"
+                            alt="Equipe MAG"
+                            loading="lazy"
+                            decoding="async">
 
                     </div>
 
@@ -1039,7 +1046,7 @@
 
                         <div class="product-category-card__image">
                             <img
-                                src="assets/img/catalogo-produtos/alternador-cummins-4078701.png"
+                                src="assets/img/catalogo-produtos/alternador-cummins-4078701.webp"
                                 alt="Alternador Cummins"
                                 loading="lazy"
                                 decoding="async">
@@ -1060,7 +1067,7 @@
 
                         <div class="product-category-card__image">
                             <img
-                                src="assets/img/catalogo-produtos/alternador-zm-9010201.png"
+                                src="assets/img/catalogo-produtos/alternador-zm-9010201.webp"
                                 alt="Alternador ZM"
                                 loading="lazy"
                                 decoding="async">
@@ -1081,7 +1088,7 @@
 
                         <div class="product-category-card__image">
                             <img
-                                src="assets/img/catalogo-produtos/bico-injetor-cummins-isf-5344766.png"
+                                src="assets/img/catalogo-produtos/bico-injetor-cummins-isf-5344766.webp"
                                 alt="Bico Injetor Cummins ISF"
                                 loading="lazy"
                                 decoding="async">
@@ -1835,7 +1842,7 @@
                             <iframe
                                 id="cummins-engine-viewer"
                                 title="Modelo 3D interativo do motor Cummins X15"
-                                src=""
+                                src="about:blank"
                                 loading="lazy"
                                 allow="autoplay; fullscreen; xr-spatial-tracking"
                                 allowfullscreen>
@@ -1878,54 +1885,59 @@
 
                     <video
                         class="gallery-media gallery-media--main"
-                        autoplay
                         muted
                         loop
                         playsinline
-                        preload="metadata"
+                        preload="none"
+                        data-lazy-video
                         aria-label="Técnico da MAG realizando manutenção">
-                        <source src="assets/img/galeria/01.mp4" type="video/mp4">
+                        <source data-src="assets/img/galeria/01.mp4" type="video/mp4">
                     </video>
 
                     <img
                         class="gallery-media"
-                        src="assets/img/galeria/02.png"
+                        src="assets/img/galeria/02.webp"
                         alt="Peças e componentes disponíveis na MAG"
-                        loading="lazy">
+                        loading="lazy"
+                        decoding="async">
 
                     <img
                         class="gallery-media"
-                        src="assets/img/galeria/03.png"
+                        src="assets/img/galeria/03.webp"
                         alt="Ferramentas e bancada técnica da MAG"
-                        loading="lazy">
+                        loading="lazy"
+                        decoding="async">
 
                     <img
                         class="gallery-media gallery-media--workshop"
-                        src="assets/img/galeria/04.png"
+                        src="assets/img/galeria/04.webp"
                         alt="Oficina e estrutura técnica da MAG"
-                        loading="lazy">
+                        loading="lazy"
+                        decoding="async">
 
                     <img
                         class="gallery-media"
                         src="assets/img/galeria/05.jpg"
                         alt="Equipe administrativa da MAG"
-                        loading="lazy">
+                        loading="lazy"
+                        decoding="async">
 
                     <img
                         class="gallery-media"
                         src="assets/img/galeria/06.jpeg"
                         alt="Recepção da MAG Peças e Serviços"
-                        loading="lazy">
+                        loading="lazy"
+                        decoding="async">
 
                     <video
                         class="gallery-media"
-                        autoplay
                         muted
                         loop
                         playsinline
-                        preload="metadata"
+                        preload="none"
+                        data-lazy-video
                         aria-label="Estoque da MAG Peças e Serviços">
-                        <source src="assets/img/galeria/07.mp4" type="video/mp4">
+                        <source data-src="assets/img/galeria/07.mp4" type="video/mp4">
                     </video>
 
                 </div>
@@ -2542,11 +2554,9 @@
 
 
 
-    <script src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js"></script>
+    <script src="assets/js/engine-viewer.js?v=30.1"></script>
 
-    <script src="assets/js/engine-viewer.js?v=29.2"></script>
-
-    <script src="assets/js/app.js?v=29.2"></script>
+    <script src="assets/js/app.js?v=30.1"></script>
 
     <script src="assets/js/mag-motion-only.js"></script>
 

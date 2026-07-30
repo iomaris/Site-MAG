@@ -33,25 +33,30 @@ const fadeElements = document.querySelectorAll(
 LOADER
 ==========================================================*/
 
-window.addEventListener("load", () => {
+let loaderDismissed = false;
 
-    if (!loader) return;
+function dismissLoader(){
 
+    if(!loader || loaderDismissed) return;
+
+    loaderDismissed = true;
     loader.style.opacity = "0";
-
     loader.style.visibility = "hidden";
-
     loader.style.pointerEvents = "none";
+    loader.style.transition = ".35s ease";
 
-    loader.style.transition = ".8s ease";
+    setTimeout(() => loader.remove(), 380);
 
-    setTimeout(() => {
+}
 
-        loader.remove();
+if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", dismissLoader, { once:true });
+}else{
+    dismissLoader();
+}
 
-    }, 900);
-
-});
+/* Segurança: o loader nunca bloqueia a página por causa de mídia externa. */
+setTimeout(dismissLoader, 1400);
 
 /*==========================================================
 HEADER
@@ -243,6 +248,44 @@ counters.forEach(counter=>{
     counterObserver.observe(counter);
 
 });
+
+
+/*==========================================================
+VÍDEOS DA GALERIA — CARREGAMENTO SOB DEMANDA
+==========================================================*/
+
+const lazyGalleryVideos = document.querySelectorAll("video[data-lazy-video]");
+
+function activateGalleryVideo(video){
+    if(video.dataset.loaded === "true") return;
+
+    video.querySelectorAll("source[data-src]").forEach(source=>{
+        source.src = source.dataset.src;
+        source.removeAttribute("data-src");
+    });
+
+    video.dataset.loaded = "true";
+    video.load();
+
+    const playPromise = video.play();
+    if(playPromise && typeof playPromise.catch === "function"){
+        playPromise.catch(()=>{});
+    }
+}
+
+if("IntersectionObserver" in window){
+    const galleryVideoObserver = new IntersectionObserver((entries, observer)=>{
+        entries.forEach(entry=>{
+            if(!entry.isIntersecting) return;
+            activateGalleryVideo(entry.target);
+            observer.unobserve(entry.target);
+        });
+    }, { rootMargin:"400px 0px", threshold:0.01 });
+
+    lazyGalleryVideos.forEach(video=>galleryVideoObserver.observe(video));
+}else{
+    lazyGalleryVideos.forEach(activateGalleryVideo);
+}
 
 /*==========================================================
 MENU MOBILE

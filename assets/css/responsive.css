@@ -2618,3 +2618,94 @@ section[id]{
         padding:20px;
     }
 }
+
+/* =========================================================
+   AJUSTES FINAIS 30.1 — MOTOR INTEIRO E TRAJETÓRIA LIMPA
+========================================================= */
+
+/* Mantém o iframe no tamanho real do quadro. O motor deixa de ser
+   ampliado artificialmente e, portanto, não perde as extremidades. */
+.advantages-engine.advantages-engine--clean{
+    overflow:visible;
+    background:transparent;
+}
+
+.advantages-engine--clean .advantages-engine__viewer{
+    position:relative;
+    width:100%;
+    min-height:0 !important;
+    aspect-ratio:4 / 3;
+    overflow:hidden;
+    background:#FFFFFF;
+}
+
+.advantages-engine--clean .advantages-engine__viewer iframe{
+    position:absolute;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    transform:none !important;
+    background:#FFFFFF !important;
+}
+
+/* Máscaras pequenas apenas sobre os cantos da interface externa.
+   Diferente das versões anteriores, elas não cobrem o motor. */
+.advantages-engine--clean .advantages-engine__viewer::before{
+    content:"";
+    position:absolute;
+    z-index:5;
+    left:0;
+    bottom:0;
+    top:auto;
+    right:auto;
+    width:64px;
+    height:58px;
+    display:block;
+    background:#FFFFFF;
+    pointer-events:none;
+}
+
+.advantages-engine--clean .advantages-engine__viewer::after{
+    content:"";
+    position:absolute;
+    z-index:5;
+    top:0;
+    right:0;
+    bottom:auto;
+    left:auto;
+    width:92px;
+    height:52px;
+    display:block;
+    background:#FFFFFF;
+    pointer-events:none;
+}
+
+.advantages-engine--clean .advantages-engine__viewer.is-loading::after{
+    width:100%;
+    height:100%;
+}
+
+/* Remove a faixa azul clara dos cartões da trajetória no celular. */
+@media (max-width:800px){
+    .mag-history__item--left .mag-history__card,
+    .mag-history__item--right .mag-history__card,
+    .mag-history__card{
+        border-left:1px solid rgba(255,255,255,.12) !important;
+    }
+
+    .advantages-engine--clean .advantages-engine__viewer{
+        aspect-ratio:4 / 3;
+        height:auto !important;
+        max-height:none !important;
+    }
+}
+
+@media (max-width:480px){
+    .advantages-engine--clean .advantages-engine__viewer{
+        aspect-ratio:1.28 / 1;
+        height:auto !important;
+        max-height:none !important;
+    }
+}
