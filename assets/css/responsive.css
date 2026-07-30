@@ -2314,3 +2314,81 @@ section[id]{
         height:118%;
     }
 }
+
+/* =========================================================
+   CORREÇÃO FINAL — MOTOR 3D NO CELULAR
+   Mantém o desktop intacto e transforma o visualizador em
+   uma área compacta, horizontal e centralizada no mobile.
+========================================================= */
+
+@media (max-width:768px){
+
+    .advantages-process__layout{
+        gap:30px;
+    }
+
+    .advantages-engine.advantages-engine--clean{
+        order:-1;
+        width:100%;
+        max-width:520px;
+        margin:0 auto;
+        overflow:hidden;
+    }
+
+    .advantages-engine--clean .advantages-engine__viewer{
+        width:100%;
+        height:clamp(270px,72vw,340px);
+        min-height:0 !important;
+        max-height:340px;
+        aspect-ratio:auto;
+        overflow:hidden;
+        background:#FFFFFF;
+        border:0;
+        border-radius:0;
+        box-shadow:none;
+    }
+
+    /* O iframe fica apenas um pouco maior que a janela. Assim as
+       pequenas ferramentas do visualizador ficam fora do recorte,
+       sem aumentar nem cortar o motor. */
+    .advantages-engine--clean .advantages-engine__viewer iframe{
+        top:-34px !important;
+        left:-18px !important;
+        width:calc(100% + 36px) !important;
+        height:calc(100% + 68px) !important;
+        min-width:0 !important;
+        min-height:0 !important;
+        transform:none !important;
+        background:#FFFFFF;
+    }
+}
+
+@media (max-width:480px){
+
+    .advantages-process__layout{
+        gap:24px;
+    }
+
+    .advantages-engine.advantages-engine--clean{
+        width:100%;
+        margin:0 auto 4px;
+    }
+
+    .advantages-engine--clean .advantages-engine__viewer{
+        height:clamp(250px,70vw,292px);
+        max-height:292px;
+    }
+
+    .advantages-engine--clean .advantages-engine__viewer iframe{
+        top:-38px !important;
+        left:-15px !important;
+        width:calc(100% + 30px) !important;
+        height:calc(100% + 76px) !important;
+    }
+}
+
+@media (max-width:380px){
+    .advantages-engine--clean .advantages-engine__viewer{
+        height:248px;
+    }
+}
