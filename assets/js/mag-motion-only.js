@@ -14,7 +14,7 @@
     function initScrollReveal() {
         const groups = [
             ['.section-title, .product-catalog__header, .clients-showcase__header, .experience-header', ''],
-            ['.differential-card, .service-card, .advantage, .google-review-card', 'mag-motion-scale'],
+            ['.differential-card, .service-card, .advantage', 'mag-motion-scale'],
             ['.brand-item, .gallery-grid img, .contact-information article', ''],
             ['.about-image, .leadership-card', 'mag-motion-left'],
             ['.about-content, .contact-right form, .map-location__card', 'mag-motion-right']
@@ -62,7 +62,6 @@
             '.product-category-card',
             '.differential-card',
             '.service-card',
-            '.google-review-card',
             '.leadership-card',
             '.brand-item'
         ].join(','));
