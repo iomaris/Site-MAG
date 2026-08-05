@@ -687,3 +687,278 @@
         height:130% !important;
     }
 }
+
+/* =====================================================================
+   AJUSTE 36 — REFINO EXCLUSIVO PARA CELULAR
+   Mantém o desktop intacto e corrige somente proporções, espaçamentos
+   e enquadramento das seções Quem Somos e Avaliações.
+   ===================================================================== */
+
+@media (max-width:640px){
+    /* QUEM SOMOS: onda mais baixa, conteúdo mais compacto e fachada inteira */
+    .about.about--waves{
+        min-height:auto;
+    }
+
+    .about-waves__shape{
+        left:-12%;
+        width:124%;
+    }
+
+    .about-waves__shape--top{
+        height:104px;
+    }
+
+    .about-waves__shape--bottom{
+        height:150px;
+    }
+
+    .about-waves__container{
+        width:calc(100% - 30px);
+        padding-top:70px;
+        padding-bottom:108px;
+    }
+
+    .about-waves__intro .section-tag{
+        margin-bottom:14px;
+    }
+
+    .about-waves__intro h2{
+        max-width:100%;
+        margin-bottom:20px;
+        font-size:clamp(30px,8.7vw,39px);
+        line-height:1.04;
+        letter-spacing:-.04em;
+        text-wrap:pretty;
+    }
+
+    .about-waves__intro h2 br{
+        display:none;
+    }
+
+    .about-waves__intro p{
+        max-width:100%;
+        font-size:14px;
+        line-height:1.68;
+    }
+
+    .about-waves__content{
+        margin-top:40px;
+        gap:42px;
+    }
+
+    .about-waves__visual{
+        width:calc(100% - 8px);
+        margin-inline:auto;
+    }
+
+    .about-waves__image-shell img{
+        width:100%;
+        height:auto;
+        min-height:0;
+        object-fit:contain;
+        object-position:center;
+    }
+
+    .about-part-icon{
+        width:38px;
+        height:38px;
+    }
+
+    .about-part-icon i{
+        font-size:15px;
+    }
+
+    .about-part-icon--gear{
+        top:-18px;
+        left:-8px;
+    }
+
+    .about-part-icon--tool{
+        right:-8px;
+    }
+
+    .about-part-icon--oil{
+        left:20px;
+        bottom:-19px;
+    }
+
+    .about-waves__text{
+        width:100%;
+        margin:0;
+    }
+
+    .about-waves__text h3{
+        margin-bottom:22px;
+        font-size:clamp(29px,8.4vw,38px);
+        line-height:1.05;
+    }
+
+    .about-waves__text p{
+        font-size:14px;
+        line-height:1.68;
+    }
+
+    /* AVALIAÇÕES: título, nota e cartão com proporções adequadas ao celular */
+    .google-reviews.google-reviews--stacked{
+        padding:82px 0 78px;
+    }
+
+    .google-reviews--stacked .google-reviews__header{
+        margin-bottom:34px;
+        padding-inline:15px;
+    }
+
+    .google-reviews--stacked .google-reviews__header .section-tag{
+        margin-bottom:17px;
+    }
+
+    .google-reviews--stacked .google-reviews__header h2{
+        margin-bottom:22px;
+        font-size:clamp(34px,9.4vw,42px);
+        line-height:1.02;
+        letter-spacing:-.045em;
+    }
+
+    .google-reviews--stacked .google-rating{
+        display:grid;
+        grid-template-columns:auto auto minmax(0,1fr) auto;
+        align-items:center;
+        justify-content:stretch;
+        width:100%;
+        max-width:100%;
+        gap:8px;
+        padding:14px 16px;
+    }
+
+    .google-reviews--stacked .google-rating strong{
+        font-size:22px;
+        line-height:1;
+    }
+
+    .google-reviews--stacked .google-rating__stars{
+        font-size:15px;
+        letter-spacing:1px;
+        white-space:nowrap;
+    }
+
+    .google-reviews--stacked .google-rating span{
+        width:auto;
+        min-width:0;
+        text-align:left;
+        font-size:11px;
+        line-height:1.35;
+    }
+
+    .google-reviews--stacked .google-rating > i{
+        font-size:19px;
+    }
+
+    .google-reviews--stacked .reviews-carousel__track{
+        gap:14px;
+        padding:12px max(7%,18px) 26px;
+    }
+
+    .google-reviews--stacked .google-review-card,
+    .google-reviews--stacked .google-review-card[data-stack-visible="true"],
+    .google-reviews--stacked .google-review-card[data-stack-position="0"]{
+        flex-basis:min(86vw,330px);
+        width:min(86vw,330px);
+        min-height:274px;
+        padding:24px 23px 29px;
+    }
+
+    .google-reviews--stacked .google-review-card__top{
+        margin-bottom:19px;
+        gap:11px;
+    }
+
+    .google-reviews--stacked .google-review-card__avatar{
+        width:39px;
+        height:39px;
+    }
+
+    .google-reviews--stacked .google-review-card__top strong{
+        font-size:14px;
+    }
+
+    .google-reviews--stacked .google-review-card__top span{
+        font-size:10px;
+    }
+
+    .google-reviews--stacked .google-review-card__stars{
+        margin-bottom:17px;
+        font-size:15px;
+    }
+
+    .google-reviews--stacked .google-review-card blockquote{
+        font-size:15px;
+        line-height:1.58;
+    }
+
+    .google-reviews--stacked .google-review-card::before{
+        right:14px;
+        bottom:-27px;
+        font-size:132px;
+    }
+
+    .google-reviews--stacked .reviews-carousel__dots{
+        margin-bottom:24px;
+    }
+
+    .google-reviews--stacked .google-reviews__link{
+        width:calc(100% - 30px);
+        min-height:50px;
+        padding-inline:14px;
+        font-size:10px;
+    }
+}
+
+@media (max-width:380px){
+    .about-waves__container{
+        width:calc(100% - 24px);
+    }
+
+    .about-waves__intro h2{
+        font-size:clamp(29px,8.5vw,35px);
+    }
+
+    .google-reviews--stacked .google-rating{
+        grid-template-columns:auto auto 1fr;
+    }
+
+    .google-reviews--stacked .google-rating span{
+        grid-column:1 / 3;
+        grid-row:2;
+        padding-top:2px;
+    }
+
+    .google-reviews--stacked .google-rating > i{
+        grid-column:3;
+        grid-row:1 / 3;
+        justify-self:end;
+    }
+}
+
+@media (max-width:640px){
+    /* Botões flutuantes menores para não cobrirem os cartões e a fachada. */
+    .whatsapp-btn{
+        right:9px;
+        bottom:12px;
+        width:46px;
+        height:46px;
+        font-size:19px;
+    }
+
+    .back-top{
+        right:9px;
+        bottom:66px;
+        width:42px;
+        height:42px;
+    }
+
+    .back-top .circular-arrow{
+        width:18px;
+        height:18px;
+    }
+}
