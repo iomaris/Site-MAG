@@ -60,6 +60,10 @@
 
     <link rel="stylesheet" href="assets/css/responsive.css?v=30.1">
 
+    <link rel="stylesheet" href="assets/css/mag-targeted-update.css?v=32.0">
+
+    <link rel="stylesheet" href="assets/css/mag-user-fixes.css?v=35.0">
+
 </head>
 
 <body>
@@ -86,7 +90,7 @@
 
         <div class="container">
 
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
 
                 <img src="assets/img/logo/logo.png" alt="MAG">
 
@@ -289,73 +293,83 @@
                             SOBRE
         ======================================================= -->
 
-        <section class="about" id="sobre">
+        <section class="about about--waves" id="sobre">
 
-            <div class="container">
+            <svg class="about-waves__shape about-waves__shape--top" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+                <path class="about-waves__layer about-waves__layer--back" d="M0 0H1440V65C1364 130 1308 160 1224 136C1115 105 1066 7 922 18C751 31 713 178 553 164C398 151 310 0 151 15C92 21 42 45 0 73Z"></path>
+                <path class="about-waves__layer about-waves__layer--front" d="M-80 0H1520V94C1407 147 1336 165 1253 126C1141 74 1080 23 954 37C782 56 736 188 566 173C411 160 331 34 166 35C73 35 6 72-80 107Z"></path>
+            </svg>
 
-                <div class="section-title">
+            <svg class="about-waves__shape about-waves__shape--bottom" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+                <path class="about-waves__layer about-waves__layer--back" d="M0 142C119 156 166 270 315 255C463 241 489 118 658 128C829 139 898 274 1082 259C1222 248 1339 180 1440 151V300H0Z"></path>
+                <path class="about-waves__layer about-waves__layer--front" d="M-80 163C75 173 134 286 307 270C474 255 511 148 675 151C844 155 918 289 1101 271C1254 256 1392 184 1520 166V320H-80Z"></path>
+            </svg>
+
+            <div class="container about-waves__container">
+
+                <header class="about-waves__intro">
 
                     <span class="section-tag">
-
                         QUEM SOMOS
-
                     </span>
 
                     <h2>
-
-                       MAIS DO QUE VENDER PEÇAS, 
-                       SOMOS O RADAR DA SUA EMBARCAÇÃO
+                        MAIS DO QUE VENDER PEÇAS,<br>
+                        SOMOS O RADAR DA SUA EMBARCAÇÃO
                     </h2>
 
                     <p>
-
-                       Há mais de três décadas, a MAG atua oferecendo peças, assistência técnica e 
-                       soluções completas para motores diesel, grupos geradores e embarcações em toda a 
-                       região Norte. Enxergamos o que pode falhar antes que falhe. 
+                        Há mais de três décadas, a MAG atua oferecendo peças, assistência técnica e
+                        soluções completas para motores diesel, grupos geradores e embarcações em toda a
+                        região Norte. Enxergamos o que pode falhar antes que falhe.
                     </p>
 
-                </div>
+                </header>
 
-                <div class="about-grid">
+                <div class="about-waves__content">
 
-                    <div class="about-image large">
+                    <figure class="about-waves__visual">
 
-                        <img
-                            src="assets/img/sobre/mag.webp"
-                            alt="Equipe MAG"
-                            loading="lazy"
-                            decoding="async">
+                        <div class="about-waves__image-shell">
+                            <span class="about-waves__texture" aria-hidden="true"></span>
+                            <img
+                                src="assets/img/sobre/mag.webp"
+                                alt="Fachada da MAG Peças e Serviços"
+                                loading="lazy"
+                                decoding="async">
+                        </div>
 
-                    </div>
+                        <span class="about-part-icon about-part-icon--gear" aria-hidden="true">
+                            <i class="fa-solid fa-gears"></i>
+                        </span>
 
-                    <div class="about-content">
+                        <span class="about-part-icon about-part-icon--tool" aria-hidden="true">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </span>
+
+                        <span class="about-part-icon about-part-icon--oil" aria-hidden="true">
+                            <i class="fa-solid fa-oil-can"></i>
+                        </span>
+
+                    </figure>
+
+                    <article class="about-waves__text">
 
                         <h3>
-
-                            Conhecimento técnico que gera confiança
-
+                            CONHECIMENTO TÉCNICO QUE GERA CONFIANÇA
                         </h3>
 
                         <p>
-
-                            Nossa equipe é formada por profissionais
-                            especializados, preparados para identificar
-                            problemas rapidamente e oferecer soluções
-                            eficientes para cada aplicação
-
+                            Nossa equipe é formada por profissionais especializados, preparados para
+                            identificar problemas rapidamente e oferecer soluções eficientes para cada aplicação.
                         </p>
 
                         <p>
-
-                            Trabalhamos com componentes originais,
-                            fabricantes OEM e marcas reconhecidas
-                            mundialmente, garantindo desempenho,
-                            durabilidade e segurança
+                            Trabalhamos com componentes originais, fabricantes OEM e marcas reconhecidas
+                            mundialmente, garantindo desempenho, durabilidade e segurança.
                         </p>
 
-                       
-
-                    </div>
+                    </article>
 
                 </div>
 
@@ -634,7 +648,7 @@
                 AVALIAÇÕES DO GOOGLE
 ======================================================= -->
 
-<section class="google-reviews" id="avaliacoes">
+<section class="google-reviews google-reviews--stacked" id="avaliacoes">
 
     <div class="container">
 
@@ -669,19 +683,6 @@
         </div>
 
         <div class="reviews-carousel" data-reviews-carousel>
-
-            <button
-                class="reviews-carousel__button reviews-carousel__button--prev"
-                type="button"
-                aria-label="Avaliação anterior">
-
-                <span class="circular-arrow circular-arrow--left" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                        <path d="M20 12H5m0 0 6-6m-6 6 6 6"></path>
-                    </svg>
-                </span>
-
-            </button>
 
             <div class="reviews-carousel__viewport">
 
@@ -956,19 +957,6 @@
                 </div>
 
             </div>
-
-            <button
-                class="reviews-carousel__button reviews-carousel__button--next"
-                type="button"
-                aria-label="Próxima avaliação">
-
-                <span class="circular-arrow circular-arrow--right" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                        <path d="M4 12h15m0 0-6-6m6 6-6 6"></path>
-                    </svg>
-                </span>
-
-            </button>
 
         </div>
 
@@ -2091,7 +2079,7 @@
                         id="contact-form"
                         action="https://formsubmit.co/fiscal@magmotores.com.br"
                         method="POST"
-                        data-success-page="obrigado.html">
+                        data-success-page="/obrigado">
 
                         <input
                             type="hidden"
@@ -2522,6 +2510,8 @@
     <script src="assets/js/mag-motion-only.js"></script>
 
     <script src="assets/js/cookie-consent.js"></script>
+
+    <script src="assets/js/mag-targeted-update.js?v=32.0"></script>
 
 </body>
 

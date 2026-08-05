@@ -1,0 +1,689 @@
+/* =====================================================================
+   MAG — AJUSTES FINAIS SOLICITADOS
+   Escopo restrito às seções Quem Somos e Avaliações.
+   ===================================================================== */
+
+/* =====================================================================
+   1. QUEM SOMOS — FAIXAS FLUIDAS AZUIS E COMPOSIÇÃO EDITORIAL
+   ===================================================================== */
+
+.about.about--waves{
+    position:relative;
+    min-height:980px;
+    padding:0;
+    overflow:hidden;
+    background:#FFFFFF;
+    isolation:isolate;
+}
+
+.about--waves::before,
+.about--waves::after{
+    display:none;
+}
+
+.about-waves__shape{
+    position:absolute;
+    z-index:0;
+    left:-4%;
+    width:108%;
+    pointer-events:none;
+    overflow:visible;
+    color:#7FA8D8;
+}
+
+.about-waves__shape--top{
+    top:-1px;
+    height:230px;
+    animation:magWaveTop 13s ease-in-out infinite alternate;
+}
+
+.about-waves__shape--bottom{
+    bottom:-1px;
+    height:315px;
+    animation:magWaveBottom 16s ease-in-out infinite alternate-reverse;
+}
+
+.about-waves__layer{
+    fill:currentColor;
+    transform-origin:center;
+}
+
+.about-waves__layer--back{
+    opacity:.36;
+}
+
+.about-waves__layer--front{
+    opacity:.19;
+    animation:magWaveLayer 10s ease-in-out infinite alternate;
+}
+
+.about-waves__container{
+    position:relative;
+    z-index:2;
+    width:min(1180px, calc(100% - 48px));
+    min-height:980px;
+    padding-top:125px;
+    padding-bottom:205px;
+}
+
+.about-waves__intro{
+    width:min(610px, 54%);
+    margin-left:1.5%;
+}
+
+.about-waves__intro .section-tag{
+    margin-bottom:16px;
+}
+
+.about-waves__intro h2{
+    max-width:610px;
+    margin:0 0 22px;
+    color:#082F5B;
+    font-family:'Open Sans',sans-serif;
+    font-size:clamp(42px,4.35vw,66px);
+    line-height:1.02;
+    font-weight:800;
+    letter-spacing:-.045em;
+    text-transform:uppercase;
+    text-wrap:balance;
+}
+
+.about-waves__intro p{
+    max-width:570px;
+    margin:0;
+    color:#667587;
+    font-size:16px;
+    line-height:1.78;
+    text-transform:none;
+}
+
+.about-waves__content{
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(360px,.92fr);
+    align-items:center;
+    gap:72px;
+    width:min(1040px,94%);
+    margin:58px 0 0 1.5%;
+}
+
+.about-waves__visual{
+    position:relative;
+    min-width:0;
+    margin:0;
+    perspective:1400px;
+}
+
+.about-waves__image-shell{
+    --about-tilt-x:0deg;
+    --about-tilt-y:0deg;
+
+    position:relative;
+    overflow:visible;
+    padding:14px;
+    border:1px solid rgba(8,47,91,.13);
+    border-radius:8px;
+    background:linear-gradient(145deg,#FFFFFF 0%,#E8F1FB 100%);
+    box-shadow:
+        -17px 19px 0 rgba(8,47,91,.055),
+        0 34px 70px rgba(8,47,91,.16);
+    transform:
+        perspective(1400px)
+        rotateX(var(--about-tilt-y))
+        rotateY(var(--about-tilt-x))
+        rotateY(-5deg)
+        translateZ(0);
+    transform-style:preserve-3d;
+    transition:transform .38s ease, box-shadow .38s ease;
+    will-change:transform;
+}
+
+.about-waves__image-shell::before{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    right:-23px;
+    bottom:-24px;
+    width:88%;
+    height:88%;
+    border:1px solid rgba(8,47,91,.10);
+    border-radius:8px;
+    background:rgba(127,168,216,.12);
+}
+
+.about-waves__image-shell::after{
+    content:"";
+    position:absolute;
+    z-index:-2;
+    left:7%;
+    right:3%;
+    bottom:-36px;
+    height:46px;
+    border-radius:50%;
+    background:radial-gradient(ellipse,rgba(8,47,91,.30),rgba(8,47,91,0) 70%);
+    filter:blur(18px);
+    opacity:.55;
+}
+
+.about-waves__image-shell img{
+    position:relative;
+    z-index:1;
+    display:block;
+    width:100%;
+    height:430px;
+    object-fit:cover;
+    border-radius:5px;
+    filter:saturate(1.03) contrast(1.035) brightness(1.015);
+    transform:translateZ(26px);
+}
+
+.about-waves__texture{
+    position:absolute;
+    z-index:3;
+    inset:14px;
+    border-radius:5px;
+    pointer-events:none;
+    opacity:.38;
+    background:
+        linear-gradient(125deg,rgba(255,255,255,.42),transparent 31%),
+        repeating-linear-gradient(0deg,rgba(8,47,91,.035) 0 1px,transparent 1px 7px),
+        repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 9px);
+    mix-blend-mode:soft-light;
+    transform:translateZ(32px);
+}
+
+.about-part-icon{
+    position:absolute;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:48px;
+    height:48px;
+    color:#0B4F8C;
+    border:1px solid rgba(8,47,91,.13);
+    border-radius:50%;
+    background:rgba(255,255,255,.82);
+    box-shadow:0 15px 32px rgba(8,47,91,.12);
+    backdrop-filter:blur(10px);
+    animation:magPartFloat 6.5s ease-in-out infinite;
+}
+
+.about-part-icon i{
+    font-size:18px;
+}
+
+.about-part-icon--gear{
+    top:-24px;
+    left:-25px;
+}
+
+.about-part-icon--tool{
+    top:43%;
+    right:-29px;
+    animation-delay:-2.1s;
+}
+
+.about-part-icon--oil{
+    left:34px;
+    bottom:-28px;
+    animation-delay:-4.2s;
+}
+
+.about-waves__text{
+    position:relative;
+    padding:36px 38px 38px;
+    border-left:3px solid rgba(11,79,140,.68);
+    background:linear-gradient(135deg,rgba(238,246,253,.78),rgba(255,255,255,.84));
+    box-shadow:0 24px 55px rgba(8,47,91,.08);
+    backdrop-filter:blur(8px);
+}
+
+.about-waves__text h3{
+    margin:0 0 25px;
+    color:#082F5B;
+    font-family:'Open Sans',sans-serif;
+    font-size:clamp(35px,3.25vw,52px);
+    line-height:1.04;
+    font-weight:800;
+    letter-spacing:-.04em;
+    text-transform:uppercase;
+}
+
+.about-waves__text p{
+    margin:0 0 20px;
+    color:#667587;
+    font-size:16px;
+    line-height:1.75;
+    text-transform:none;
+}
+
+.about-waves__text p:last-child{
+    margin-bottom:0;
+}
+
+.about-waves__mini-icons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:22px;
+}
+
+.about-waves__mini-icons span{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    min-height:34px;
+    padding:7px 11px;
+    color:#0B4F8C;
+    border:1px solid rgba(8,47,91,.11);
+    border-radius:999px;
+    background:rgba(255,255,255,.72);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.055em;
+    text-transform:uppercase;
+}
+
+.about-waves__mini-icons i{
+    font-size:12px;
+}
+
+.about--waves.about-targeted-motion .about-waves__intro,
+.about--waves.about-targeted-motion .about-waves__visual,
+.about--waves.about-targeted-motion .about-waves__text{
+    opacity:0;
+    transition:
+        opacity .85s ease,
+        transform .85s cubic-bezier(.2,.78,.24,1);
+}
+
+.about--waves.about-targeted-motion .about-waves__intro{
+    transform:translate3d(-26px,0,0);
+}
+
+.about--waves.about-targeted-motion .about-waves__visual{
+    transform:translate3d(0,35px,0);
+    transition-delay:.10s;
+}
+
+.about--waves.about-targeted-motion .about-waves__text{
+    transform:translate3d(30px,0,0);
+    transition-delay:.18s;
+}
+
+.about--waves.about-targeted-motion.is-in-view .about-waves__intro,
+.about--waves.about-targeted-motion.is-in-view .about-waves__visual,
+.about--waves.about-targeted-motion.is-in-view .about-waves__text{
+    opacity:1;
+    transform:none;
+}
+
+@keyframes magWaveTop{
+    0%{transform:translate3d(-1.5%,0,0) scaleX(1.015)}
+    50%{transform:translate3d(1.2%,8px,0) scaleX(1.035)}
+    100%{transform:translate3d(2.8%,-4px,0) scaleX(1.02)}
+}
+
+@keyframes magWaveBottom{
+    0%{transform:translate3d(-2%,4px,0) scaleX(1.025)}
+    50%{transform:translate3d(1.5%,-7px,0) scaleX(1.045)}
+    100%{transform:translate3d(3%,3px,0) scaleX(1.015)}
+}
+
+@keyframes magWaveLayer{
+    from{transform:translateX(-1.5%) scaleX(1.025)}
+    to{transform:translateX(2.5%) scaleX(1.045)}
+}
+
+@keyframes magPartFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-9px)}
+}
+
+/* =====================================================================
+   2. AVALIAÇÕES — RESTAURA A PILHA APROVADA E REMOVE SÓ AS SETAS
+   ===================================================================== */
+
+.google-reviews--stacked .reviews-carousel__button{
+    display:none !important;
+}
+
+.google-reviews--stacked .reviews-carousel{
+    cursor:grab;
+}
+
+.google-reviews--stacked .reviews-carousel.is-dragging{
+    cursor:grabbing;
+}
+
+/* =====================================================================
+   RESPONSIVIDADE
+   ===================================================================== */
+
+@media (max-width:1100px){
+    .about.about--waves{
+        min-height:1040px;
+    }
+
+    .about-waves__container{
+        min-height:1040px;
+        padding-top:132px;
+        padding-bottom:220px;
+    }
+
+    .about-waves__content{
+        gap:48px;
+        width:97%;
+    }
+
+    .about-waves__image-shell img{
+        height:390px;
+    }
+
+    .about-waves__text{
+        padding:31px 30px 33px;
+    }
+}
+
+@media (max-width:900px){
+    .about.about--waves{
+        min-height:auto;
+    }
+
+    .about-waves__shape--top{
+        height:185px;
+    }
+
+    .about-waves__shape--bottom{
+        height:245px;
+    }
+
+    .about-waves__container{
+        min-height:auto;
+        padding-top:112px;
+        padding-bottom:175px;
+    }
+
+    .about-waves__intro{
+        width:min(680px,100%);
+        margin-left:0;
+    }
+
+    .about-waves__content{
+        grid-template-columns:1fr;
+        width:100%;
+        margin:50px 0 0;
+        gap:55px;
+    }
+
+    .about-waves__visual{
+        width:min(650px,100%);
+    }
+
+    .about-waves__text{
+        width:min(650px,100%);
+        margin-left:auto;
+    }
+}
+
+@media (max-width:640px){
+    .about-waves__shape{
+        left:-18%;
+        width:136%;
+    }
+
+    .about-waves__shape--top{
+        height:145px;
+    }
+
+    .about-waves__shape--bottom{
+        height:205px;
+    }
+
+    .about-waves__container{
+        width:min(100% - 32px,1180px);
+        padding-top:88px;
+        padding-bottom:140px;
+    }
+
+    .about-waves__intro h2{
+        font-size:clamp(33px,10vw,46px);
+        line-height:1.04;
+    }
+
+    .about-waves__intro p{
+        font-size:15px;
+        line-height:1.7;
+    }
+
+    .about-waves__image-shell{
+        padding:10px;
+        transform:none !important;
+        box-shadow:
+            -9px 12px 0 rgba(8,47,91,.05),
+            0 25px 52px rgba(8,47,91,.14);
+    }
+
+    .about-waves__image-shell img{
+        height:auto;
+        min-height:285px;
+    }
+
+    .about-waves__texture{
+        inset:10px;
+    }
+
+    .about-part-icon{
+        width:41px;
+        height:41px;
+    }
+
+    .about-part-icon--gear{
+        top:-20px;
+        left:-10px;
+    }
+
+    .about-part-icon--tool{
+        right:-11px;
+    }
+
+    .about-part-icon--oil{
+        left:24px;
+        bottom:-22px;
+    }
+
+    .about-waves__text{
+        padding:28px 22px 29px;
+    }
+
+    .about-waves__text h3{
+        font-size:clamp(31px,9vw,42px);
+    }
+
+    .about-waves__mini-icons span{
+        width:100%;
+        justify-content:flex-start;
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    .about-waves__shape,
+    .about-waves__layer--front,
+    .about-part-icon{
+        animation:none !important;
+    }
+
+    .about-waves__image-shell{
+        transform:none !important;
+        transition:none !important;
+    }
+}
+
+
+/* =====================================================================
+   AJUSTE 34 — RESTAURA IMAGEM E TEXTO ORIGINAIS NO QUEM SOMOS
+   Mantém apenas as ondas e os ícones flutuantes solicitados.
+   ===================================================================== */
+
+.about-waves__content{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:90px;
+    width:100%;
+    margin:58px 0 0;
+}
+
+.about-waves__visual{
+    perspective:none;
+}
+
+.about-waves__image-shell{
+    padding:0;
+    overflow:visible;
+    border:0;
+    border-radius:6px;
+    background:transparent;
+    box-shadow:none;
+    transform:none !important;
+    transform-style:flat;
+    transition:none;
+}
+
+.about-waves__image-shell::before,
+.about-waves__image-shell::after,
+.about-waves__texture{
+    display:none;
+}
+
+.about-waves__image-shell img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    object-position:center;
+    border-radius:6px;
+    box-shadow:0 24px 58px rgba(8,47,91,.14);
+    filter:none;
+    transform:none;
+}
+
+.about-waves__text{
+    padding:0;
+    border:0;
+    background:transparent;
+    box-shadow:none;
+    backdrop-filter:none;
+}
+
+.about-waves__text h3{
+    margin-bottom:32px;
+}
+
+.about-waves__mini-icons{
+    display:none !important;
+}
+
+/* =====================================================================
+   AJUSTE 34 — REMOVE O TOM VERDE-ÁGUA DOS CARTÕES DE AVALIAÇÃO
+   ===================================================================== */
+
+.google-reviews--stacked .google-review-card,
+.google-reviews--stacked .google-review-card:nth-child(3n + 2),
+.google-reviews--stacked .google-review-card:nth-child(3n){
+    background:#EEF5FB;
+}
+
+.google-reviews--stacked .google-review-card[data-stack-position="0"]{
+    background:#FFFFFF;
+}
+
+@media (max-width:1100px){
+    .about-waves__content{
+        gap:58px;
+        width:100%;
+    }
+}
+
+@media (max-width:900px){
+    .about-waves__content{
+        grid-template-columns:1fr;
+        gap:55px;
+    }
+
+    .about-waves__visual,
+    .about-waves__text{
+        width:min(650px,100%);
+    }
+
+    .about-waves__text{
+        margin-left:auto;
+    }
+}
+
+@media (max-width:640px){
+    .about-waves__image-shell img{
+        height:auto;
+        min-height:285px;
+    }
+}
+
+/* =====================================================================
+   AJUSTE 35 — MOTOR 3D COM RECORTE RETANGULAR LIMPO
+   Remove as máscaras em formato de canto e recorta o visualizador inteiro
+   por uma janela reta, escondendo somente a interface externa.
+   ===================================================================== */
+
+.advantages-engine.advantages-engine--clean{
+    display:flex;
+    justify-content:center;
+    overflow:visible;
+    background:transparent;
+}
+
+.advantages-engine--clean .advantages-engine__viewer{
+    position:relative;
+    width:min(100%,720px);
+    min-height:0 !important;
+    aspect-ratio:16 / 9;
+    margin-inline:auto;
+    overflow:hidden;
+    border:0;
+    border-radius:0;
+    background:#FFFFFF;
+    box-shadow:none;
+    isolation:isolate;
+}
+
+.advantages-engine--clean .advantages-engine__viewer::before,
+.advantages-engine--clean .advantages-engine__viewer::after{
+    content:none !important;
+    display:none !important;
+}
+
+.advantages-engine--clean .advantages-engine__viewer iframe{
+    position:absolute !important;
+    z-index:1;
+    top:-18% !important;
+    right:auto !important;
+    bottom:auto !important;
+    left:-4% !important;
+    width:108% !important;
+    height:136% !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    border:0 !important;
+    background:#FFFFFF !important;
+    transform:none !important;
+}
+
+@media (max-width:700px){
+    .advantages-engine--clean .advantages-engine__viewer{
+        width:100%;
+        aspect-ratio:1.5 / 1;
+    }
+
+    .advantages-engine--clean .advantages-engine__viewer iframe{
+        top:-15% !important;
+        left:-4% !important;
+        width:108% !important;
+        height:130% !important;
+    }
+}
